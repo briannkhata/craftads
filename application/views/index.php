@@ -81,11 +81,10 @@
                                 <a href="<?=base_url();?>Home/about">About Us</a>
                             </li>
                             <li>
-                                <a href="<?=base_url();?>Home/about">Talk to Us</a>
+                                <a href="<?=base_url();?>Home/contact_us">Talk to Us</a>
                             </li>
                             <li>
-                                <a href="javascript:void(0);" data-bs-toggle="modal"
-                                    data-bs-target="#user-register">Sell my Skill</a>
+                                <a href="<?=base_url();?>Home/register">Sell my Skill</a>
                             </li>
                         </ul>
                     </div>
@@ -106,8 +105,10 @@
                     <div class="col-lg-6 col-md-6 ">
                         <div class="section-search-box d-flex align-items-center aos" data-aos="fade-up">
                             <div class="section-search">
-                                <h3>World's Largest <span>Marketplace</span></h3>
-                                <p>Search From 150 Awesome Verified Ads!</p>
+                                <h3>Sell your skill here
+                                    <!-- <span>Marketplace</span> -->
+                                </h3>
+                                <!-- <p>Search From 150 Awesome Verified Ads!</p> -->
                             </div>
                         </div>
                     </div>
@@ -156,7 +157,7 @@
         <section class="feature-category dots-hover">
             <div class="container">
                 <div class="section-heading text-center aos" data-aos="fade-up">
-                    <h2>Featured Categories</h2>
+                    <h2>Categories</h2>
                     <span>What do you need to find?</span>
                 </div>
                 <div class="service-carousel">
@@ -294,7 +295,7 @@
         <!-- Featured Category -->
 
         <!-- Popular Servides -->
-        <section class="popular-services truly-one-service dots-hover">
+        <!-- <section class="popular-services truly-one-service dots-hover">
             <div class="container">
                 <div class="section-heading text-center">
                     <h2>Most Popular Services</h2>
@@ -752,7 +753,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <!-- /Popular Servides -->
 
         <!-- How It Works -->
@@ -857,95 +858,7 @@
         <footer class="footer footer-two">
 
             <!-- Footer Top -->
-            <div class="footer-top aos" data-aos="fade-up">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-3 col-md-6">
-                            <!-- Footer Widget -->
-                            <div class="footer-widget footer-menu">
-                                <div class="footer-logo-sell">
-                                    <img src="<?=base_url();?>front//img/logo-two.png" alt="img">
-                                </div>
-                                <div class="footer-about">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua.</p>
-                                </div>
-                            </div>
-                            <!-- /Footer Widget -->
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <!-- Footer Widget -->
-                            <div class="footer-widget footer-menu">
-                                <h2 class="footer-title">Categories</h2>
-                                <ul>
-                                    <li>
-                                        <a href="search.html">Computer</a>
-                                    </li>
-                                    <li>
-                                        <a href="search.html">Interior</a>
-                                    </li>
-                                    <li>
-                                        <a href="search.html">Car Wash</a>
-                                    </li>
-                                    <li>
-                                        <a href="search.html">Cleaning</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!-- /Footer Widget -->
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <!-- Footer Widget -->
-                            <div class="footer-widget footer-contact">
-                                <h2 class="footer-title">Address</h2>
-                                <div class="footer-contact-info">
-                                    <div class="footer-address">
-                                        <span><i class="far fa-building"></i></span>
-                                        <p>367 Hillcrest Lane, Irvine, California, United States</p>
-                                    </div>
-                                    <p><i class="fas fa-headphones"></i> 321 546 8764</p>
-                                    <p class="mb-0"><i class="fas fa-envelope"></i> <a
-                                            href="https://html.truelysell.com/cdn-cgi/l/email-protection"
-                                            class="__cf_email__"
-                                            data-cfemail="7e0a0c0b1b12070d1b12123e1b061f130e121b501d1113">[email&#160;protected]</a>
-                                    </p>
-                                </div>
-                            </div>
-                            <!-- /Footer Widget -->
-                        </div>
-                        <div class="col-lg-3 col-md-6">
-                            <!-- Footer Widget -->
-                            <div class="footer-widget">
-                                <h2 class="footer-title">Follow Us</h2>
-                                <div class="social-icon">
-                                    <ul>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-facebook"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i> </a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                                        </li>
-                                        <li>
-                                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="subscribe-form">
-                                    <input type="email" class="form-control" placeholder="Enter your email">
-                                    <a href="search.html"
-                                        class="btn footer-btn d-flex align-items-center justify-content-center">
-                                        <i class="fas fa-paper-plane"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <!-- /Footer Widget -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+
             <!-- /Footer Top -->
 
             <!-- Footer Bottom -->
@@ -956,7 +869,8 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-6">
                                 <div class="copyright-text">
-                                    <p class="mb-0">&copy; 2022 <a href="index.html">Truelysell</a>. All rights
+                                    <p class="mb-0">&copy; 2022 <a href="<?=base_url();?>">Craft Ads</a>. All
+                                        rights
                                         reserved.</p>
                                 </div>
                             </div>
@@ -965,10 +879,10 @@
                                 <div class="copyright-menu">
                                     <ul class="policy-menu">
                                         <li>
-                                            <a href="term-condition.html">Terms and Conditions</a>
+                                            <a href="<?=base_url();?>Home/terms">Terms and Conditions</a>
                                         </li>
                                         <li>
-                                            <a href="privacy-policy.html">Privacy</a>
+                                            <a href="<?=base_url();?>Home/privacy">Privacy</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -1154,10 +1068,12 @@
 
     <!-- Bootstrap Core JS -->
     <script src="<?=base_url();?>front//js/popper.min.js"></script>
-    <script src="<?=base_url();?>front//plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?=base_url();?>front//plugins/bootstrap/js/bootstrap.min.js">
+    </script>
 
     <!-- Owl JS -->
-    <script src="<?=base_url();?>front//plugins/owlcarousel/owl.carousel.min.js"></script>
+    <script src="<?=base_url();?>front//plugins/owlcarousel/owl.carousel.min.js">
+    </script>
 
     <!-- Aos -->
     <script src="<?=base_url();?>front//plugins/aos/aos.js"></script>
