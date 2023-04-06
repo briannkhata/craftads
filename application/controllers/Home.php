@@ -67,6 +67,10 @@ class home extends CI_Controller {
         $this->load->view('view_member',$data);          
     }
 
+    function getCAT($category){
+        echo json_encode($this->M_category->get_CAT($category));
+    }
+
     function view_category($param=''){
         $data['page_title']  = $this->M_category->get_category($param).' members';
 
@@ -91,7 +95,7 @@ class home extends CI_Controller {
 
     function login(){
         $data['page_title'] = 'Login';
-        $this->load->view('login2',$data);
+        $this->load->view('login',$data);
     }
 
   

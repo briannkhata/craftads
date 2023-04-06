@@ -13,6 +13,14 @@ class M_category extends CI_Model {
 			return $query->result_array();
 		}
 
+		function get_CAT($category){
+		    $this->db->where('deleted',0);
+			$this->db->like('category',$category);
+		    $this->db->order_by('category');
+			$query = $this->db->get('categories');
+			return $query->result_array();
+		}
+
 		function get_category_by_id($category_id){
 		    $this->db->where('category_id',$category_id);
 			$query = $this->db->get('categories');
@@ -99,4 +107,3 @@ class M_category extends CI_Model {
 
 	
 }
-

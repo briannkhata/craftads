@@ -1,249 +1,150 @@
-<?php $this->load->view('headerr');?>
+<?php include 'headerr.php';?>
 
-		<!--************************************
-				Header End
-		*************************************-->
-		<!--************************************
-				Home Slider Start
-		*************************************-->
-		<div id="tg-innerbanner" class="tg-innerbanner tg-haslayout">
-			<figure data-vide-bg="poster: images/slider/img-01.jpg" data-vide-options="position: 50% 50%" style="background-image: url('<?=base_url();?>front/banner.jpg');">
-				<figcaption>
-					<div class="container">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="tg-bannercontent">
-									<form class="tg-formtheme tg-formbannersearch">
-										<fieldset>
-											
-										</fieldset>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</figcaption>
-			</figure>
-			<!--div class="tg-breadcrumbarea">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<ol class="tg-breadcrumb">
-								<li><a href="#">Home</a></li>
-								<li class="tg-active">Craft Ads listing</li>
-							</ol>
-						</div>
-					</div>
-				</div>
-			</div-->
-		</div>
-		<!--************************************
-				Home Slider End
-		*************************************-->
-		<!--************************************
-				Main Start
-		*************************************-->
-		<main id="tg-main" class="tg-main tg-haslayout">
-			<!--************************************
-					About Us Start
-			*************************************-->
-			<div class="container">
-				<div class="row">
-					<div id="tg-twocolumns" class="tg-twocolumns">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							
-						</div>
-						<div class="col-xs-12 col-sm-5 col-md-4 col-lg-3">
-							<aside id="tg-sidebar" class="tg-sidebar">
-								<form class="tg-formtheme tg-formnerrowsearch">
-									<div class="tg-sidebartitle"><h2>Narrow Your Search:</h2></div>
-									<fieldset>
-										<div id="tg-narrowsearchcollapse" class="tg-themecollapse tg-narrowsearchcollapse">
-											<div class="tg-collapsetitle">
-												<i class="fa fa-rotate-left"></i>
-												<span class="fa fa-angle-down">By Title/Keyword</span>
-											</div>
-											<div class="tg-themecollapsecontent">
-												<div class="form-group tg-inputwithicon">
-													<i class="icon-magnifier"></i>
-													<input type="search" name="keyword" id="keyword" class="form-control" placeholder="Search Title/Keyword">
-												</div>
-											</div>
-											<div class="tg-collapsetitle">
-												<i class="fa fa-rotate-left"></i>
-												<span class="fa fa-angle-down">By Category</span>
-											</div>
-											<div class="tg-themecollapsecontent">
-												<div class="form-group">
-													<div class="tg-select">
-														<select name="category_id" id="category_id">
-															<option selected="" disabled="">category</option>
-															<?php foreach ($this->M_category->get_categories() as $cat) {?>
-															<option value="<?=$cat['category_id'];?>"><?=$cat['category'];?></option>
-														<?php }?>
-														</select>
-													</div>
-												</div>
-											</div>
-											<div class="tg-collapsetitle">
-												<i class="fa fa-rotate-left"></i>
-												<span class="fa fa-angle-down">By Country</span>
-											</div>
-											<div class="tg-themecollapsecontent">
-												<div class="form-group">
-													<div class="tg-select">
-														<select name="country_id" id="country_id">
-															<option selected="" disabled="">country</option>
-															<?php foreach ($this->M_country->get_countries() as $cat) {?>
-															<option value="<?=$cat['country_id'];?>"><?=$cat['country'];?></option>
-														<?php }?>
-														</select>
-													</div>
-												</div>
-											</div>
-											<div class="tg-collapsetitle">
-												<i class="fa fa-rotate-left"></i>
-												<span class="fa fa-angle-down">By District/Province</span>
-											</div>
-											<div class="tg-themecollapsecontent">
-												<div class="form-group">
-													<div class="tg-select">
-														<select name="district_id" id="district_id">
-															<option selected="" disabled="">district</option>
-															<?php foreach ($this->M_district->get_districts() as $cat) {?>
-															<option value="<?=$cat['district_id'];?>"><?=$cat['district'];?></option>
-														<?php }?>
-														</select>
-													</div>
-												</div>
-											</div>
-											<div class="tg-collapsetitle">
-												<i class="fa fa-rotate-left"></i>
-												<span class="fa fa-angle-down">By Location</span>
-											</div>
-											<div class="tg-themecollapsecontent">
-												<div class="form-group">
-													<div class="tg-select">
-														<select id="location_id" name="location_id">
-															<option selected="" disabled="">location</option>
-															<?php foreach ($this->M_location->get_locations() as $cat) {?>
-															<option value="<?=$cat['location_id'];?>"><?=$cat['location'];?></option>
-														<?php }?>
-														</select>
-													</div>
-												</div>
-											</div>
+<!-- /Header -->
 
-										</div>
-										<button type="button" class="tg-btn" onclick="run_filter()">apply filter</button>
-									</fieldset>
-								</form>
-							</aside>
-						</div>
-						<div class="col-xs-12 col-sm-7 col-md-8 col-lg-9">
-							<div id="tg-content" class="tg-content">
-								<div class="tg-contenthead">
-									<div class="tg-sortandview">
-										<div class="tg-sortby">
-											<div class="tg-pagehead">
-												Craft Ads Listing
-											</div>
-										</div>
-										
-										
-									</div>
-									<div class="tg-applyedfilters">
-										
-									</div>
-								</div>
-								<div class="tg-ads">
-									<div class="row" id="listo">
-										<?php foreach ($this->M_user->get_members2() as $row) {?>
-										
-										<div class="col-xs-6 col-sm-12 col-md-6 col-lg-4 tg-verticaltop">
-											<div class="tg-ad tg-verifiedad">
-												<figure>
-													 <?php if($row['featured'] == 1){?>
-                      <span class="tg-themetag tg-featuretag">featured</span>
-                    <?php } else{}?>
+<!-- Breadcrumb -->
+<div class="breadcrumb-bar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="breadcrumb-title">
+                    <h2>Find a Professional</h2>
+                </div>
+            </div>
+            <div class="col-auto float-end ms-auto breadcrumb-menu">
+                <!-- <nav aria-label="breadcrumb" class="page-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="index.html">Home</a>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">Find a Professional</li>
+                    </ol>
+                </nav> -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Breadcrumb -->
 
-		                    <a href="<?=base_url();?>home/profile/<?=$row['user_id'];?>">
-		                    	<?php 
-		                       if(isset($row['photo'])){?>
-									<img src="<?=base_url()."uploads/users/".$row['photo'];?>">
-		                       <?php } else {?>
-		                      	    <img src="<?=base_url();?>uploads/ph.jfif">
-		                       <?php }?>
-
-		                    </a>
-
-												</figure>
-												<div class="tg-adcontent">
-													<ul class="tg-productcagegories">
-														<li><a href="javascript:void(0);">
-															<?=$this->M_category->get_category($row['category_id']);?></a></li>
-													</ul>
-													<div class="tg-adtitle">
-														<h3><a href="<?=base_url();?>home/profile/<?=$row['user_id'];?>"><?=$row['name'];?></a></h3>
-													</div>
-                    <div><h4>$<?=number_format($row['start_price'],2);?></h4></div>
-					<span><?=$row['address'];?> </span>
-                    <span><?=$this->M_district->get_district($row['district_id']);?>,
-                      <?=$this->M_location->get_location($row['location_id']);?></span>
-                    <div>
-                      <a class="" href="https://api.whatsapp.com/send?phone=<?=$row['phone'];?>" title="click to send whatsapp message">
-                        <?=$row['phone'];?>
-                      </a>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 theiaStickySidebar">
+                <div class="card filter-card">
+                    <div class="card-body">
+                        <h4 class="card-title mb-4">Search Filter</h4>
+                        <form id="search_form">
+                            <div class="filter-widget">
+                                <div class="filter-list">
+                                    <h4 class="filter-title">Keyword</h4>
+                                    <input type="text" class="form-control" placeholder="What are you looking for?">
+                                </div>
+                                <div class="filter-list">
+                                    <h4 class="filter-title">Sort By</h4>
+                                    <select class="form-control selectbox select form-select">
+                                        <option>Sort By</option>
+                                        <option>Price Low to High</option>
+                                        <option>Price High to Low</option>
+                                        <option>Newest</option>
+                                    </select>
+                                </div>
+                                <div class="filter-list">
+                                    <h4 class="filter-title">Categories</h4>
+                                    <select class="form-control form-control selectbox select form-select">
+                                        <option>All Categories</option>
+                                        <?php foreach($this->M_category->get_categories() as $cat){?>
+                                        <option><?=$cat['category'];?></option>
+                                        <?php }?>
+                                    </select>
+                                </div>
+                                <div class="filter-list">
+                                    <h4 class="filter-title">Location</h4>
+                                    <input class="form-control" type="text" placeholder="Search Location">
+                                </div>
+                            </div>
+                            <button class="btn btn-primary pl-5 pr-5 btn-block get_services w-100"
+                                type="button">Search</button>
+                        </form>
                     </div>
-
-                     <div class="" style="margin-top: 1%;">
-                       <a href="mailto:<?=$row['email'];?>" class="" title="click to send email">
-                        <?=$row['email'];?>
-                      </a>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row align-items-center mb-4">
+                    <div class="col-md-6 col">
+                        <h4><span><?=count($this->M_user->get_members());?></span> Services</h4>
                     </div>
-												</div>
-											</div>
-										</div>
-									<?php }?>
+                    <div class="col-md-6 col-auto">
+                        <div class="view-icons">
+                            <a href="javascript:void(0);" class="grid-view active"><i class="fas fa-th-large"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="row">
+                        <?php foreach($this->M_user->get_members() as $u){?>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="service-widget">
+                                <div class="service-img">
+                                    <a href="service-details.html">
+                                        <img class="img-fluid serv-img" alt="Service Image"
+                                            src="<?=base_url();?>front/img/services/service-01.jpg">
+                                    </a>
+                                    <div class="fav-btn">
+                                        <a href="javascript:void(0)" class="fav-icon">
+                                            <i class="fas fa-heart"></i>
+                                        </a>
+                                    </div>
+                                    <div class="item-info">
+                                        <div class="service-user">
+                                            <a href="#">
+                                                <img src="<?=base_url();?>front/img/customer/user-01.jpg" alt="">
+                                            </a>
+                                            <span class="service-price">From
+                                                <?=number_format($u['start_price'],2);?></span>
+                                        </div>
+                                        <div class="cate-list">
+                                            <a class="bg-yellow" href="service-details.html">Cleaning</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="service-content">
+                                    <h3 class="title">
+                                        <a href="service-details.html"><?=$u['name'];?></a>
+                                    </h3>
+                                    <div class="rating">
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star filled"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span class="d-inline-block average-rating">(4.3)</span>
+                                    </div>
+                                    <div class="user-info">
+                                        <div class="row">
+                                            <span class="col-auto ser-contact"><i class="fas fa-phone me-1"></i>
+                                                <span><?=$u['phone'];?></span>
+                                            </span>
+                                            <span class="col ser-location">
+                                                <span><?=$u['exact_location'];?></span> <i
+                                                    class="fas fa-map-marker-alt ms-1"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php }?>
 
-								</div>
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--************************************
-					About Us End
-			*************************************-->
-		</main>
-		<!--************************************
-				Main End
-		*************************************-->
-		<!--************************************
-				Footer Start
-		*************************************-->
-<?php $this->load->view('footerr');?>
-<script type="text/javascript">
-	function run_filter(){
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>﻿
 
-			$.post("<?=base_url();?>home/refresh_members",
-			{
-				category_id: $("#category_id").val(),
-				 country_id: $("#country_id").val(),
-				district_id: $("#district_id").val(),
-				location_id: $("#location_id").val(),
-				    keywork: $("#keywork").val()
-			},
-			function(data,status){
-				var container = $('#listo'); //jquery selector (get element by id)
-				if(data){
-	
-					container.html('');
-					container.html(data);
-				}
-			});
-		}
-	
-</script>
+<!-- Footer -->
+<!-- /Footer Top -->
+
+<!-- Footer Bottom -->
+<?php include 'footerr.php';
