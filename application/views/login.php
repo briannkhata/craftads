@@ -7,38 +7,36 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="section-header text-center">
-                    <h2>Login to Your Account</h2>
+                    <h2>Login</h2>
                 </div>
-                <form action="<?=base_url();?>login/signin" method="post">
+                <form action="<?=base_url();?>Login/signin" method="post">
                     <div class="service-fields mb-3">
-                        <h3 class="heading-2">Enter your Details</h3>
+                        <h3 class="heading-2">Enter your details to Login</h3>
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Phone <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="text" name="phone" id="phone" placeholder="Phone"
+                                        required>
                                 </div>
                             </div>
 
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Password <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="text">
+                                    <input class="form-control" type="password" name="password" id="password"
+                                        placeholder="Password" required>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <?php if ($this->session->flashdata('message2')) { ?>
-                    <div class="alert alert-info fade in">
-                        <a href="#" class="close" data-dismiss="alert">&times;</a>
-                        <center>
-                            <?=$this->session->flashdata('message2'); ?> </center>
+                    <?php if ($this->session->flashdata('message')) { ?>
+                    <div class="alert alert-danger" role="alert">
+                        <a href="#" class="close" data-dismiss="alert"></a>
+                        <center> <?=$this->session->flashdata('message'); ?> </center>
                     </div>
                     <?php } ?>
-
-
-
 
                     <div class="submit-section">
                         <button class="btn btn-primary submit-btn" type="submit">Login</button>
@@ -51,3 +49,11 @@
 
 <!-- Footer -->
 <?php include 'footerr.php';?>
+
+<script>
+$(document).ready(function() {
+    setTimeout(function() {
+        $(".alert ").fadeOut();
+    }, 5000); // 5000 milliseconds = 5 seconds
+});
+</script>

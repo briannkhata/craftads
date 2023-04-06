@@ -98,6 +98,16 @@ class home extends CI_Controller {
         $this->load->view('login',$data);
     }
 
+    function terms(){
+        $data['page_title'] = 'Terms & Conditions';
+        $this->load->view('terms',$data);
+    }
+
+    function privacy(){
+        $data['page_title'] = 'Privacy Policy';
+        $this->load->view('privacy',$data);
+    }
+
   
 
     function sendMaill(){

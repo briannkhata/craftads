@@ -13,15 +13,13 @@ class Login extends CI_Controller {
 
 	function signin(){   
 		$username = $this->input->post('username');
-		//$password = $this->input->post('password');			  
 		$password = MD5($this->input->post('password'));			  
-		$user = $this->db->query("SELECT * FROM users WHERE username ='$username' AND password ='$password'");
+		$user = $this->db->query("SELECT * FROM users WHERE phone ='$phone' AND password ='$password'");
 		$row = $user->row();
 		if (isset($row)){
 			$name		=	$row->name;
 			$user_id	=	$row->user_id;
 			$role		=	$row->role;
-
 			$this->session->set_userdata('user_login', '1');
 			$this->session->set_userdata('user_id',$user_id);
 			$this->session->set_userdata('role',$role);
@@ -32,7 +30,7 @@ class Login extends CI_Controller {
 		$data['page_title'] = 'Login';
 		$this->session->set_flashdata('message','Invalid Username or Password');
 		//$this->load->view('login',$data);
-		redirect('home/login');
+		redirect('Home/login');
 	}
 
     function logout(){
