@@ -99,7 +99,36 @@ $(document).ready(function() {
         $(".alert ").fadeOut();
     }, 5000);
 });
+
+function save_enquiry() {
+    try {
+
+        if (document.getElementById("email").value == '' ||
+            document.getElementById("phone").value == '' ||
+            document.getElementById("name").value == '' ||
+            document.getElementById("enquiry").value == '') {
+            alert('Fill all fields');
+        } else {
+
+            $.post("<?=base_url();?>home/save_enquiry", {
+                    name: document.getElementById("name").value,
+                    enquiry: document.getElementById("enquiry").value,
+                    phone: document.getElementById("phone").value,
+                    email: document.getElementById("email").value
+                },
+                function(data, status) {
+                    alert('Thank you for contacting us..We will get back to you ASAP...');
+                    location.reload();
+
+                });
+        }
+    } catch (err) {
+        //Clear 
+        alert(err);
+    }
+}
 </script>
+
 
 </body>
 

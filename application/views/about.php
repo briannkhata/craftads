@@ -11,14 +11,14 @@
                     <h2>About Us</h2>
                 </div>
             </div>
-            <div class="col-auto float-end ms-auto breadcrumb-menu">
+            <!-- <div class="col-auto float-end ms-auto breadcrumb-menu">
                 <nav aria-label="breadcrumb" class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">About Us</li>
                     </ol>
                 </nav>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -28,33 +28,42 @@
     <div class="content">
         <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-12">
                     <div class="about-blk-content">
-                        <h4>Experienced and Reliable</h4>
-                        <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut scelerisque the
-                            mattis, leo quam aliquet congue placerat mi id nisi interdum mollis. Praesent
-                            pharetra, justo ut scel erisque the mattis, leo quam aliquet congue justo ut
-                            scelerisque. Praesent pharetra, justo ut scelerisque the mattis, leo quam aliquet
-                            congue justo ut scelerisque.</p>
-                        <p>Nunc placerat mi id nisi interdum mollis. Praesent pharetra, justo ut scelerisque the
-                            mattis, leo quam aliquet congue placerat mi id nisi interdum mollis. Praesent
-                            pharetra, justo ut scel erisque the mattis, leo quam aliquet congue justo ut
-                            scelerisque. Praesent pharetra, justo ut scelerisque the mattis, leo quam aliquet
-                            congue justo ut scelerisque.</p>
+                        <p>
+                            This
+                            is a network aiming to have a database of all skilled men and women world-wide under one
+                            network where they can easily get employment opportunities from
+                            different clients in need of their services or skills. E.g. brick layers, tailors,
+                            painters, consultants, tutor, accountant, Data analysts, Project Managers,
+                            Computer technicians etc.
+                            <br><br>
+                            Through this platform, the skilled will meet those
+                            who need their skills. With a fast growing database of skilled men and women,
+                            one can easily filter through our search engine and locate the nearest skilled
+                            and experienced craftsman wherever they are, locally or internationally to do
+                            them a piece work
+                            <br><br>
+                            At Craft Ads Network, we believe no matter how skilled you are, if you are
+                            anonymous, you simply are not skilled at all. This is why we give the skilled
+                            an opportunity to let the world know who they are and what they do and where
+                            exactly they are located. We are a bridge between the skilled and those who
+                            need their skills
+                        </p>
                     </div>
                 </div>
-                <div class="col-6">
+                <!-- <div class="col-6">
                     <div class="about-blk-image">
                         <img src="<?=base_url();?>front/img/about.jpg" class="img-fluid" alt="">
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
 </section>
 
 <!-- How It Works -->
-<section class="how-work">
+<!-- <section class="how-work" style="margin-top: -25%;">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -102,7 +111,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- /How It Works -->
 
 <!-- Footer -->

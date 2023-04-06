@@ -14,74 +14,76 @@
                     <div class="col-12">
                         <div class="terms-content">
                             <div class="terms-text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vel
-                                    sodales mauris. Nunc accumsan mi massa, ut maximus magna ultricies et:</p>
-                                <ol>
-                                    <li>Integer quam odio, ullamcorper id diam in, accumsan convallis libero.
-                                        Duis at lacinia urna.</li>
-                                    <li>Mauris eget turpis sit amet purus pulvinar facilisis at sed lacus.</li>
-                                    <li>Quisque malesuada volutpat orci, accumsan scelerisque lorem pulvinar
-                                        vitae.</li>
-                                    <li>Vestibulum sit amet sem aliquam, vestibulum nisi sed, sodales libero.
-                                    </li>
-                                </ol>
+                                <p>
+                                    This Privacy Policy explains how we collect, use, and protect your personal data on
+                                    our website for skilled people. By using our website, you agree to the terms of this
+                                    policy.</p>
                             </div>
                             <div class="terms-text">
-                                <h4>Aenean accumsan aliquam justo, et rhoncus est ullamcorper at</h4>
-                                <p>Donec posuere dictum enim, vel sollicitudin orci tincidunt ac. Maecenas
-                                    mattis ex eu elit tincidunt egestas. Vivamus posuere nunc vel metus bibendum
-                                    varius. Vestibulum suscipit lacinia eros a aliquam. Sed dapibus arcu eget
-                                    egestas hendrerit.</p>
+                                <h4>
+                                    Information We Collect</h4>
+                                <p>
 
-                                <p>Vivamus consectetur metus at nulla efficitur mattis. Aenean egestas eu odio
-                                    vestibulum vestibulum. Duis nulla lectus, lacinia vitae nibh vitae, sagittis
-                                    interdum lacus. Mauris lacinia leo odio, eget finibus lectus pharetra ut.
-                                    Nullam in semper enim, id gravida nulla.</p>
+                                    We may collect personal data that you provide to us when you register on our
+                                    website, such as your name, email address, and other contact information. We may
+                                    also collect data about your use of our website, such as your IP address, browser
+                                    type, and browsing history.
+                                </p>
+                            </div>
 
-                                <p>Fusce gravida auctor justo, vel lobortis sem efficitur id. Cras eu eros vitae
-                                    justo dictum tempor.</p>
+                            <div class="terms-text">
+                                <h4> How We Use Your Information
+                                </h4>
+                                <p>
+                                    We may use your personal data to provide you with the services you have requested,
+                                    to communicate with you about our services, and to improve our website and services.
+                                    We may also use your data for marketing purposes, but only with your explicit
+                                    consent.
+                                    <br><br>
+
+                                    We may share your personal data with third-party service providers who help us
+                                    operate our website and provide our services.
+                                    We will not sell or rent your personal data to third parties without your consent.
+                                </p>
                             </div>
                             <div class="terms-text">
-                                <h4>Etiam sed fermentum lectus. Quisque vitae ipsum libero</h4>
-                                <p>Phasellus sit amet vehicula arcu. Etiam pulvinar dui libero, vitae fringilla
-                                    nulla convallis in. Fusce sagittis cursus nisl, at consectetur elit
-                                    vestibulum vestibulum:</p>
-                                <ul>
-                                    <li>Nunc pulvinar efficitur interdum.</li>
-                                    <li>Donec feugiat feugiat pulvinar.</li>
-                                    <li>Suspendisse eu risus feugiat, pellentesque arcu eu, molestie lorem.
-                                    </li>
-                                    <li>Duis non leo commodo, euismod ipsum a, feugiat libero.</li>
-                                </ul>
+                                <h4> Data Security</h4>
+                                <p>
+                                    We take appropriate technical and organizational measures to protect your personal
+                                    data against unauthorized access, disclosure, or misuse. We regularly review and
+                                    update our security practices to ensure the safety of your personal data.
+                                </p>
                             </div>
                             <div class="terms-text">
-                                <h4>pulvinar</h4>
-                                <p>Sed sollicitudin, diam nec tristique tincidunt, nulla ligula facilisis nunc,
-                                    non condimentum tortor leo id ex.</p>
-
-                                <p>Vivamus consectetur metus at nulla efficitur mattis. Aenean egestas eu odio
-                                    vestibulum vestibulum. Duis nulla lectus, lacinia vitae nibh vitae, sagittis
-                                    interdum lacus. Mauris lacinia leo odio, eget finibus lectus pharetra ut.
-                                    Nullam in semper enim, id gravida nulla.</p>
-
-                                <p>Donec posuere dictum enim, vel sollicitudin orci tincidunt ac. Maecenas
-                                    mattis ex eu elit tincidunt egestas. Vivamus posuere nunc vel metus bibendum
-                                    varius. Vestibulum suscipit lacinia eros a aliquam. Sed dapibus arcu eget
-                                    egestas hendrerit.Donec posuere dictum enim, vel sollicitudin orci tincidunt
-                                    ac. Maecenas mattis ex eu elit tincidunt egestas. Vivamus posuere nunc vel
-                                    metus bibendum varius. Vestibulum suscipit lacinia eros a aliquam. Sed
-                                    dapibus arcu eget egestas hendrerit.</p>
+                                <h4>Your Rights</h4>
+                                <p>
+                                    You have the right to access, modify, and delete your personal data. You may also
+                                    opt out of any marketing communications we send you. To exercise your rights, please
+                                    contact us at info@craftads.net
+                                </p>
                             </div>
+
                             <div class="terms-text">
-                                <h4>efficitur</h4>
+                                <h4>
+                                    Changes to Our Privacy Policy</h4>
+                                <p>
+                                    We may update this Privacy Policy from time to time. Any changes we make will be
+                                    posted on our website. We encourage you to review this policy periodically to stay
+                                    informed about how we are protecting your personal data.
 
-                                <p>Fusce gravida auctor justo, vel lobortis sem efficitur id. Cras eu eros vitae
-                                    justo dictum tempor.</p>
-
-                                <p><strong>Vivamus posuere nunc vel metus bibendum varius. Vestibulum suscipit
-                                        lacinia eros a aliquam. Sed dapibus arcu eget egestas hendrerit.Donec
-                                        posuere dictum enim, vel sollicitudin orci tincidunt ac.</strong></p>
+                                </p>
                             </div>
+
+                            <div class="terms-text">
+                                <h4> Contact Us</h4>
+                                <p>
+                                    If you have any questions or concerns about this Privacy Policy or our data
+                                    practices, please contact us at info@craftads.net
+
+                                </p>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
