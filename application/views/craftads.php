@@ -57,7 +57,7 @@
                                     <h4 class="filter-title">Categories</h4>
                                     <select class="form-control form-control selectbox select form-select"
                                         name="category_id" id="category_id" required>
-                                        <option>All Categories</option>
+                                        <option selected disabled>All Categories</option>
                                         <?php foreach($this->M_category->get_categories() as $cat){?>
                                         <option value=" <?=$cat['category_id'];?>"><?=$cat['category'];?></option>
                                         <?php }?>
@@ -106,7 +106,8 @@
                                         </div>
                                         <div class="cate-list">
                                             <a class="bg-yellow"
-                                                href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>">Cleaning</a>
+                                                href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>">
+                                                <?=$this->M_category->get_category($u['category_id']);?></a>
                                         </div>
                                     </div>
                                 </div>
@@ -125,7 +126,11 @@
                                     <div class="user-info">
                                         <div class="row">
                                             <span class="col-auto ser-contact"><i class="fas fa-phone me-1"></i>
-                                                <span><?=$u['phone'];?></span>
+                                                <span> <a class=""
+                                                        href="https://api.whatsapp.com/send?phone=<?=$u['phone'];?>"
+                                                        title="click to send whatsapp message">
+                                                        <?=$u['phone'];?></a>
+                                                </span>
                                             </span>
                                             <span class="col ser-location">
                                                 <span><?=$u['exact_location'];?></span> <i

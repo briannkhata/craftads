@@ -63,8 +63,9 @@ class home extends CI_Controller {
     function profile($param=''){
         $data['page_title']  = 'Member Details';
         $data['user_id']  = $param;
+        $data['category_id']  = $this->M_user->get_category_id($param);
         $this->add_views($param);
-        $this->load->view('view_member',$data);          
+        $this->load->view('profile',$data);          
     }
 
     function getCAT($category){

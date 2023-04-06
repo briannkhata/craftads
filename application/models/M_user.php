@@ -120,12 +120,11 @@ class M_user extends CI_Model {
 			return $query->result_array();
 		}
 
-		function get_users_by_category_four($category_id){
+		function get_users_by_category($category_id){
 		    $this->db->where('category_id',$category_id);
-		    //$this->db->where('deleted',0);
+		    $this->db->where('deleted',0);
    		    $this->db->where('role','member');
    		    $this->db->order_by('user_id',rand());
-   		    $this->db->limit(4);
 		    $query = $this->db->get('users');
 			return $query->result_array();
 		}
@@ -170,7 +169,6 @@ class M_user extends CI_Model {
 			}else {
 				return 0;
 			}
-			
 		}
 
 		function get_user($user_id){
