@@ -1,346 +1,512 @@
+<?php include 'headerr.php';?>
 
-    <?php $this->load->view('headerr');?>
+<!-- /Header -->
 
-		<!--************************************
-				Header End
-		*************************************-->
-		<!--************************************
-				Home Slider Start
-		*************************************-->
-		<div id="tg-innerbanner" class="tg-innerbanner tg-haslayout">
-			<figure data-vide-bg="poster: images/slider/img-01.jpg" data-vide-options="position: 50% 50%" style="background-image: url('<?=base_url();?>front/banner.jpg');">
-				<figcaption>
-					<div class="container">
-						<div class="row">
-							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-								<div class="tg-bannercontent">
-									<form class="tg-formtheme tg-formbannersearch">
-										<fieldset>
-											
-										</fieldset>
-									</form>
-								</div>
-							</div>
-						</div>
-					</div>
-				</figcaption>
-			</figure>
-			<!--div class="tg-breadcrumbarea">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<ol class="tg-breadcrumb">
-								<li><a href="#">Home</a></li>
-								<li class="tg-active"><?=$page_title;?></li>
-							</ol>
-						</div>
-					</div>
-				</div>
-			</div-->
-		</div>
-		<!--************************************
-				Home Slider End
-		*************************************-->
-		<!--************************************
-				Main Start
-		*************************************-->
-		<main id="tg-main" class="tg-main tg-haslayout">
-			<!--************************************
-					About Us Start
-			*************************************-->
 
-			<?php 
-			$category_id = $this->M_user->get_category_id($user_id);
-			foreach ($this->M_user->get_user_by_id($user_id) as $key) {?>
-			
-			<div class="container">
-				<div class="row">
-					<div id="tg-twocolumns" class="tg-twocolumns">
-						<div class="col-xs-12 col-sm-5 col-md-4 col-lg-4">
-							<aside id="tg-sidebar" class="tg-sidebar">
-								<div class="tg-pricebox">
-									<div class="tg-priceandlastupdate">
-										<span><?=number_format($key['start_price'],2);?></span>
-									</div>
-								</div>
-								<div class="tg-sellercontactdetail">
-									<div class="tg-sellertitle">
-										<div class="tg-memberinfo">
-												<h3><a href="javascript:void(0);"><?=$key['name'];?></a></h3>
-												<span>
-													Member Since <?=date('F d, Y',strtotime($key['date_joined']));?> </span>
-											</div>
-									</div>
-									<div class="tg-sellercontact">
-										<div class="tg-memberinfobox">
-											<a href="javascript:void(0);">
-												<?php 
-								              if(isset($key['photo'])){?>
-												<img src="<?=base_url();?>uploads/users/<?=$key['photo'];?>" class="img-thumbnail" style="margin-left: 4%;" >
-												<?php } else {?>
-						                      	    <img src="<?=base_url();?>uploads/ph.jfif" class="img-thumbnail" style="margin-left: 10%;">
-						                       <?php }?>
-											</a>
-											
-											<div class="tg-memberinfo">
-												
-											</div>
-										</div>
-										<a class="tg-btnphone" href="javascript:void(0);" style="padding: 5%; text-align: left;">
-											
-											<?=$key['phone'];?>
-										</a>
-										<a class="tg-btnphone" href="mailto:<?=$key['email'];?>" style="padding: 1%; text-align: left;">
-												&nbsp;&nbsp;
-												<?=$key['email'];?>
-										</a>
-										<a class="tg-btnphone" href="javascript:void(0);" style="padding: 1%; text-align: left;">
-												&nbsp;&nbsp;
-												<?=$key['facebook'];?>
-										</a>
-										<a class="tg-btnphone" href="javascript:void(0);" style="padding: 1%; text-align: left;">
-												&nbsp;&nbsp;
-												<?=$key['twitter'];?>
-										</a>
-										<a class="tg-btnphone" href="javascript:void(0);" style="padding: 1%; text-align: left;">
-												&nbsp;&nbsp;
-												<?=$key['youtube'];?>
-										</a>
-										<a class="tg-btnphone" href="javascript:void(0);" style="padding: 1%; text-align: left;">
-												&nbsp;&nbsp;
-										</a>
-										<a class="tg-btnmakeanoffer" href="#"style="padding: 2%; text-align: left;">
-												&nbsp;&nbsp;
-												<?=$key['address'];?>
-												<?=$this->M_district->get_district($key['district_id']);?>,
-                     						    <?=$this->M_location->get_location($key['location_id']);?>
-											
-										</a>
-										
-									</div>
-									
-								</div>
-								<div class="tg-safetytips">
-									<div class="tg-safetytipstitle"><h2>Reviews</h2></div>
-									<div id="tg-safetytipsslider" class="tg-safetytipsslider slid owl-carousel">
-									<?php foreach ($this->M_user->get_user_review($user_id) as $one) {?>
-									
-										<div class="item tg-safetytip active">
-											<h3><?=$one['name'];?></h3>
-											<div class="tg-description">
-												<p><?=$one['review'];?></p>
-											</div>
-										</div>
-									<?php }?>
-										
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="service-view">
+                    <div class="service-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h1>Car Repair Services</h1>
+                            <div class="fav-btn fav-btn-big">
+                                <a href="javascript:void(0)" class="fav-icon with-border">
+                                    <i class="fas fa-heart"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <address class="service-location"><i class="fas fa-location-arrow"></i> Hanover,
+                            Maryland</address>
+                        <div class="rating">
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <i class="fas fa-star filled"></i>
+                            <span class="d-inline-block average-rating">(5)</span>
+                        </div>
+                        <div class="service-cate">
+                            <a href="search.html">Automobile</a>
+                        </div>
+                    </div>
+                    <div class="service-images service-carousel">
+                        <div class="images-carousel owl-carousel owl-theme">
+                            <div class="item">
+                                <img src="<?=base_url();?>front/img/services/service-02.jpg" alt="" class="img-fluid">
+                            </div>
+                            <div class="item">
+                                <img src="<?=base_url();?>front/img/services/service-02.jpg" alt="" class="img-fluid">
+                            </div>
+                            <div class="item">
+                                <img src="<?=base_url();?>front/img/services/service-02.jpg" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-details">
+                        <ul class="nav nav-pills service-tabs" id="pills-tab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
+                                    role="tab" aria-controls="pills-home" aria-selected="true">Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                    role="tab" aria-controls="pills-profile" aria-selected="false">Services Offered</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-book-tab" data-toggle="pill" href="#pills-book" role="tab"
+                                    aria-controls="pills-book" aria-selected="false">Reviews</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                aria-labelledby="pills-home-tab">
+                                <div class="card service-description">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Service Details</h5>
+                                        <p class="mb-0">Car wash is a facility used to clean the exterior and,
+                                            in some cases, the interior of motor vehicles. Car washes can be
+                                            self-serve, fully automated, or full-service with attendants who
+                                            wash the vehicle.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                aria-labelledby="pills-profile-tab">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Services Offered</h5>
+                                        <div class="service-offer">
+                                            <ul class="list-bullet">
+                                                <li>Lorem Ipsum</li>
+                                                <li>Lorem Ipsum</li>
+                                                <li>Lorem Ipsum</li>
+                                                <li>Lorem Ipsum</li>
+                                                <li>Lorem Ipsum</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-book" role="tabpanel" aria-labelledby="pills-book-tab">
+                                <div class="card review-box">
+                                    <div class="card-body">
+                                        <div class="review-list">
+                                            <div class="review-img">
+                                                <img class="rounded-circle"
+                                                    src="<?=base_url();?>front/img/customer/user-01.jpg" alt="">
+                                            </div>
+                                            <div class="review-info">
+                                                <h5>Jeffrey Akridge</h5>
+                                                <div class="review-date">August 06, 2020 20:07 pm</div>
+                                                <p class="mb-0">Good Work</p>
+                                            </div>
+                                            <div class="review-count">
+                                                <div class="rating">
+                                                    <i class="fas fa-star filled"></i>
+                                                    <i class="fas fa-star filled"></i>
+                                                    <i class="fas fa-star filled"></i>
+                                                    <i class="fas fa-star filled"></i>
+                                                    <i class="fas fa-star filled"></i>
+                                                    <span class="d-inline-block average-rating">(5.0)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="card-title">Related Services</h4>
+                <div class="service-carousel">
+                    <div class="popular-slider owl-carousel owl-theme">
 
-										<?php foreach ($this->M_user->get_user_reviews($user_id) as $value) {?>
-										<div class="item tg-safetytip">
-											<h3><?=$value['name'];?></h3>
-											<div class="tg-description">
-												<p><?=$value['review'];?></p>
-											</div>
-										</div>
-									<?php }?>
+                        <div class="service-widget">
+                            <div class="service-img">
+                                <a href="service-details.html">
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?=base_url();?>front/img/services/service-03.jpg">
+                                </a>
+                                <div class="item-info">
+                                    <div class="service-user">
+                                        <a href="#">
+                                            <img src="<?=base_url();?>front/img/customer/user-03.jpg" alt="">
+                                        </a>
+                                        <span class="service-price">$2</span>
+                                    </div>
+                                    <div class="cate-list">
+                                        <a class="bg-yellow" href="service-details.html">Electrical</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="title">
+                                    <a href="service-details.html">Electric Panel Repairing Service</a>
+                                </h3>
+                                <div class="rating">
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="d-inline-block average-rating">(4.5)</span>
+                                </div>
+                                <div class="user-info">
+                                    <div class="row">
+                                        <span class="col-auto ser-contact"><i class="fas fa-phone me-1"></i>
+                                            <span>xxxxxxxx30</span></span>
+                                        <span class="col ser-location"><span>Kalispell, Montana</span> <i
+                                                class="fas fa-map-marker-alt ms-1"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-									</div>
-									<div id="tg-currentandtotalslides" class="tg-currentandtotalslides"></div>
-								</div>
-								<div class="tg-reportthisadbox">
-									<div class="tg-reportthisadtitle">
-										<h2>Add Review</h2>
-									</div>
-									<form class="tg-formtheme tg-formreportthisad" id="add_review">
-											<fieldset>
-										
-											<div class="form-group tg-inputwithicon">
-												<input type="text" name="name" id="name" placeholder="Your name" class="form-control">
-												<input type="hidden" name="user_id" id="user_id" value="<?=$user_id;?>">
-											</div>
-											<div class="form-group tg-inputwithicon">
-												<textarea class="form-control" name="review" id="review" placeholder="Write your review"></textarea>
-											</div>
-											<div class="tg-btns">
-												<button class="tg-btn" type="button" onclick="add_review()">Add Review</button>
-												<button class="tg-btn" type="button" onclick="clearfields()">Cancel</button>
-											</div>
-										</fieldset>
-									</form>
-								</div>
-							</aside>
-						</div>
-						<div class="col-xs-12 col-sm-7 col-md-8 col-lg-8">
-							<div id="tg-content" class="tg-content">
-								<div class="tg-ad tg-verifiedad tg-detail tg-addetail">
-									<div class="tg-adcontent">
-										<ul class="tg-pagesequence">
-										</ul>
-										<!--div class="tg-adtitle" style="font-weight: bold;">
-											<h2><?=$key['profession'];?></h2>
-										</div-->
-										
-									</div>
-								
-									<div class="tg-description">
-											<div class="" style="font-weight: bold;">
-											<h3>ABOUT ME</h3>
-										</div>
+                        <div class="service-widget">
+                            <div class="service-img">
+                                <a href="service-details.html">
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?=base_url();?>front/img/services/service-04.jpg">
+                                </a>
+                                <div class="item-info">
+                                    <div class="service-user">
+                                        <a href="#">
+                                            <img src="<?=base_url();?>front/img/customer/user-04.jpg" alt="">
+                                        </a>
+                                        <span class="service-price">$14</span>
+                                    </div>
+                                    <div class="cate-list">
+                                        <a class="bg-yellow" href="service-details.html">Car Wash</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="title">
+                                    <a href="service-details.html">Steam Car Wash</a>
+                                </h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="d-inline-block average-rating">(0)</span>
+                                </div>
+                                <div class="user-info">
+                                    <div class="row">
+                                        <span class="col-auto ser-contact"><i class="fas fa-phone me-1"></i>
+                                            <span>xxxxxxxx74</span></span>
+                                        <span class="col ser-location"><span>Electra, Texas</span> <i
+                                                class="fas fa-map-marker-alt ms-1"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-										<p><b><?=$key['tagline'];?></b></p>
-										<p><?=$key['details'];?></p>
-									</div>
-								</div>
+                        <div class="service-widget">
+                            <div class="service-img">
+                                <a href="service-details.html">
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?=base_url();?>front/img/services/service-05.jpg">
+                                </a>
+                                <div class="item-info">
+                                    <div class="service-user">
+                                        <a href="#">
+                                            <img src="<?=base_url();?>front/img/customer/user-05.jpg" alt="">
+                                        </a>
+                                        <span class="service-price">$100</span>
+                                    </div>
+                                    <div class="cate-list">
+                                        <a class="bg-yellow" href="service-details.html">Cleaning</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="title">
+                                    <a href="service-details.html">House Cleaning Services</a>
+                                </h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="d-inline-block average-rating">(0)</span>
+                                </div>
+                                <div class="user-info">
+                                    <div class="row">
+                                        <span class="col-auto ser-contact"><i class="fas fa-phone me-1"></i>
+                                            <span>xxxxxxxx91</span></span>
+                                        <span class="col ser-location"><span>Sylvester, Georgia</span> <i
+                                                class="fas fa-map-marker-alt ms-1"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-										
+                        <div class="service-widget">
+                            <div class="service-img">
+                                <a href="service-details.html">
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?=base_url();?>front/img/services/service-06.jpg">
+                                </a>
+                                <div class="item-info">
+                                    <div class="service-user">
+                                        <a href="#">
+                                            <img src="<?=base_url();?>front/img/customer/user-06.jpg" alt="">
+                                        </a>
+                                        <span class="service-price">$100</span>
+                                    </div>
+                                    <div class="cate-list">
+                                        <a class="bg-yellow" href="service-details.html">Computer</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="title">
+                                    <a href="service-details.html">Computer & Server AMC Service</a>
+                                </h3>
+                                <div class="rating">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="d-inline-block average-rating">(0)</span>
+                                </div>
+                                <div class="user-info">
+                                    <div class="row">
+                                        <span class="col-auto ser-contact"><i class="fas fa-phone me-1"></i>
+                                            <span>xxxxxxxx92</span></span>
+                                        <span class="col ser-location"><span>Los Angeles, California</span> <i
+                                                class="fas fa-map-marker-alt ms-1"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-<div class="tg-adtitle" style="font-weight: bold;">
-											<h3>REFERENCES</h3>
-										</div>
-<div class="tg-ad tg-verifiedad tg-detail tg-addetail">
-	<hr>
-				<?php foreach ($this->M_referee->get_user_referees($user_id) as $ham) {?>
-					<p style="border-bottom: 1px solid;"><?=$ham['referee'];?></p>
-					
-									
+                        <div class="service-widget">
+                            <div class="service-img">
+                                <a href="service-details.html">
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?=base_url();?>front/img/services/service-07.jpg">
+                                </a>
+                                <div class="item-info">
+                                    <div class="service-user">
+                                        <a href="#">
+                                            <img src="<?=base_url();?>front/img/customer/user-07.jpg" alt="">
+                                        </a>
+                                        <span class="service-price">$5</span>
+                                    </div>
+                                    <div class="cate-list">
+                                        <a class="bg-yellow" href="service-details.html">Interior</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="title">
+                                    <a href="service-details.html">Interior Designing</a>
+                                </h3>
+                                <div class="rating">
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="d-inline-block average-rating">(4)</span>
+                                </div>
+                                <div class="user-info">
+                                    <div class="row">
+                                        <span class="col-auto ser-contact"><i class="fas fa-phone me-1"></i>
+                                            <span>xxxxxxxx28</span></span>
+                                        <span class="col ser-location"><span>Hanover, Maryland</span> <i
+                                                class="fas fa-map-marker-alt ms-1"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-										
-											
-									<?php }?>
+                        <div class="service-widget">
+                            <div class="service-img">
+                                <a href="service-details.html">
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?=base_url();?>front/img/services/service-08.jpg">
+                                </a>
+                                <div class="item-info">
+                                    <div class="service-user">
+                                        <a href="#">
+                                            <img src="<?=base_url();?>front/img/customer/user-08.jpg" alt="">
+                                        </a>
+                                        <span class="service-price">$100</span>
+                                    </div>
+                                    <div class="cate-list">
+                                        <a class="bg-yellow" href="service-details.html">Construction</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="title">
+                                    <a href="service-details.html">Building Construction Services</a>
+                                </h3>
+                                <div class="rating">
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="d-inline-block average-rating">(4)</span>
+                                </div>
+                                <div class="user-info">
+                                    <div class="row">
+                                        <span class="col-auto ser-contact"><i class="fas fa-phone me-1"></i>
+                                            <span>xxxxxxxx62</span></span>
+                                        <span class="col ser-location"><span>Burr Ridge, Illinois</span> <i
+                                                class="fas fa-map-marker-alt ms-1"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-								</div>
-						
-								<!--div di class="tg-authorotherads">
+                        <div class="service-widget">
+                            <div class="service-img">
+                                <a href="service-details.html">
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?=base_url();?>front/img/services/service-09.jpg">
+                                </a>
+                                <div class="item-info">
+                                    <div class="service-user">
+                                        <a href="#">
+                                            <img src="<?=base_url();?>front/img/customer/user-09.jpg" alt="">
+                                        </a>
+                                        <span class="service-price">$500</span>
+                                    </div>
+                                    <div class="cate-list">
+                                        <a class="bg-yellow" href="service-details.html">Painting</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="title">
+                                    <a href="service-details.html">Commercial Painting Services</a>
+                                </h3>
+                                <div class="rating">
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="d-inline-block average-rating">(3)</span>
+                                </div>
+                                <div class="user-info">
+                                    <div class="row">
+                                        <span class="col-auto ser-contact"><i class="fas fa-phone me-1"></i>
+                                            <span>xxxxxxxx75</span></span>
+                                        <span class="col ser-location"><span>Huntsville, Alabama</span> <i
+                                                class="fas fa-map-marker-alt ms-1"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-									<div class="tg-sectionhead">
-										<div class="tg-title">
-											<h2>Similar Categories</h2>
-										</div>
-										<div class="tg-description">
-											<p></p>
-										</div>
-									</div>
-									<div id="tg-authoradsslider" class="tg-ads tg-adsvtwo tg-authoradsslider owl-carousel">
+                        <div class="service-widget">
+                            <div class="service-img">
+                                <a href="service-details.html">
+                                    <img class="img-fluid serv-img" alt="Service Image"
+                                        src="<?=base_url();?>front/img/services/service-10.jpg">
+                                </a>
+                                <div class="item-info">
+                                    <div class="service-user">
+                                        <a href="#">
+                                            <img src="<?=base_url();?>front/img/user.jpg" alt="">
+                                        </a>
+                                        <span class="service-price">$150</span>
+                                    </div>
+                                    <div class="cate-list">
+                                        <a class="bg-yellow" href="service-details.html">Plumbing</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="title">
+                                    <a href="service-details.html">Plumbing Services</a>
+                                </h3>
+                                <div class="rating">
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star filled"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <span class="d-inline-block average-rating">(3)</span>
+                                </div>
+                                <div class="user-info">
+                                    <div class="row">
+                                        <span class="col-auto ser-contact"><i class="fas fa-phone me-1"></i>
+                                            <span>xxxxxxxx13</span></span>
+                                        <span class="col ser-location"><span>Richmond, Virginia</span> <i
+                                                class="fas fa-map-marker-alt ms-1"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 theiaStickySidebar">
+                <div class="sidebar-widget widget">
+                    <div class="service-amount">
+                        <span>$150</span>
+                    </div>
+                    <div class="service-book">
+                        <a href="book-service.html" class="btn btn-primary"> Book Service </a>
+                    </div>
+                </div>
+                <div class="card provider-widget clearfix">
+                    <div class="card-body">
+                        <h5 class="card-title">Service Provider</h5>
+                        <div class="about-author">
+                            <div class="about-provider-img">
+                                <div class="provider-img-wrap">
+                                    <a href="javascript:void(0);">
+                                        <img class="img-fluid rounded-circle" alt=""
+                                            src="<?=base_url();?>front/img/provider/provider-01.jpg">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="provider-details">
+                                <a href="javascript:void(0);" class="ser-provider-name">Thomas Herzberg</a>
+                                <p class="last-seen"><i class="fas fa-circle online"></i> Online</p>
+                                <p class="text-muted mb-1">Member Since Apr 2020</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="provider-info">
+                            <p class="mb-1"><i class="far fa-envelope"></i> <a href="#"><span class="__cf_email__"
+                                        data-cfemail="f7839f989a96849f92858d95928590b7928f969a879b92d994989a">[email&#160;protected]</span></a>
+                            </p>
+                            <p class="mb-0"><i class="fas fa-phone-alt"></i> xxxxxxxx33</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card available-widget">
+                    <div class="card-body">
+                        <h5 class="card-title">Service Availability</h5>
+                        <ul>
+                            <li><span>Monday</span>9:30 AM - 7:00 PM</li>
+                            <li><span>Tuesday</span>9:30 AM - 7:00 PM</li>
+                            <li><span>Wednesday</span>9:30 AM - 7:00 PM</li>
+                            <li><span>Thursday</span>9:30 AM - 7:00 PM</li>
+                            <li><span>Friday</span>9:30 AM - 7:00 PM</li>
+                            <li><span>Saturday</span>9:30 AM - 7:00 PM</li>
+                            <li><span>Sunday</span>9:30 AM - 7:00 PM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>﻿
 
-								<?php foreach ($this->M_user->get_users_by_categorydd($category_id,$user_id) as $cate) {?>
-										
-										<div class="tg-ad tg-verifiedad item">
-											<figure>
-												    <?php if($cate['featured'] == 1){?>
-													   <span class="tg-themetag tg-featuretag">featured</span>
-												    <?php }?>
-													<a href="<?=base_url();?>home/profile/<?=$cate['user_id'];?>">
-														<?php 
-								                       if(isset($cate['photo'])){?>
-															<img src="<?=base_url()."uploads/users/".$cate['photo'];?>">
-								                       <?php } else {?>
-								                      	    <img src="<?=base_url();?>uploads/ph.jfif">
-								                       <?php }?>
-													</a>
-											</figure>
-											<div class="tg-adcontent">
-												<ul class="tg-productcagegories">
-													<li><a href="javascript:void(0);">
-														<?=$this->M_category->get_category($cate['category_id']);?>
-													</a></li>
-												</ul>
-												<div class="tg-adtitle">
-													<h3><a href="<?=base_url();?>home/profile/<?=$cate['user_id'];?>"><?=$cate['name'];?></a></h3>
-												</div>
-                   					  <div class="tg-adprice">
-                   					 	<h4>Price $<?=number_format($cate['start_price'],2);?></h4></div>
-											<address><?=$cate['address'];?></address>
-						                    <address><?=$this->M_district->get_district($cate['district_id']);?>,
-						                      <?=$this->M_location->get_location($cate['location_id']);?></address>
-													<div class="tg-phonelike">
-										                <a class="tg-btnphone" href="https://api.whatsapp.com/send?phone=<?=$cate['phone'];?>">
-										                    <?=$cate['phone'];?>
-										                </a>
-						                    		</div>
-
-						                     <div class="tg-phonelike" style="margin-top: 1%;">
-						                       <a href="mailto:<?=$cate['email'];?>" class="tg-btnphone">
-						                        <?=$cate['email'];?>
-						                      </a>
-						                    </div>
-											</div>
-										</div>
-									<?php }?>
-
-									</div>
-								</div-->
-							</div>
-
-							<div>
-								<div class="lightbox">
-								  <div class="row">
-						<?php foreach ($this->M_image->get_user_images($user_id) as $row){?>
-
-								    <div class="col-lg-6" style="padding: 2%; text-overflow: ellipsis;">
-								      <img
-								        src="<?=base_url();?>uploads/users/<?=$row['image'];?>"
-								        data-mdb-img="<?=base_url();?>uploads/users/<?=$row['image'];?>"
-								        alt="<?=$row['title'];?>"
-								        class="w-100 mb-2 mb-md-4 shadow-1-strong rounded"
-								      />
-								      <span style="text-overflow:ellipsis; padding: 1%;"><?=$row['title'];?></span>
-								   
-								    </div>
-								<?php }?>
-								 
-							</div>
-						</div>
-						<!--div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-							<div class="tg-youmayalsolike">
-								<div class="tg-viewallbox">
-									 <a class="tg-btn" href="<?=base_url();?>home/craftads">View All</a>
-									</div>
-								</div>
-							</div-->
-						</div>
-					</div>
-				</div>
-			</div>
-		<?php }?>
-			<!--************************************
-					About Us End
-			*************************************-->
-		</main>
-		<!--************************************
-				Main End
-		*************************************-->
-		<!--************************************
-				Footer Start
-		*************************************-->
-		<?php $this->load->view('footerr');?>
-		<script type="text/javascript">
-			function add_review(){
-				try
-				{
-
-					if(document.getElementById("name").value =='' || document.getElementById("review").value ==''){
-						alert('Please both fill name and your review fields');
-					}else{
-
-					$.post("<?=base_url();?>home/add_review",
-					{
-						  name: document.getElementById("name").value,
-					   user_id: document.getElementById("user_id").value,
-						review: document.getElementById("review").value
-					},
-					function(data,status){
-						alert('Your review,successfully submited');
-						location.reload();
-					});
-				}
-			}
-				catch(err)
-				{
-					//Clear 
-					alert(err);
-				}
-			}
-
-			function clearfields(){
-				document.getElementById("add_review").reset();
-			}
-		</script>
+<!-- Footer -->
+<?php include 'footerr.php';?>

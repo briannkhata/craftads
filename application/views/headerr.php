@@ -81,7 +81,7 @@
                                 <a href="<?=base_url();?>Home/about">About Us</a>
                             </li>
                             <li>
-                                <a href="<?=base_url();?>Home/contact_us">Contact Us</a>
+                                <a href="<?=base_url();?>Home/contact">Contact Us</a>
                             </li>
 
                             <li>

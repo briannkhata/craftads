@@ -85,7 +85,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="service-widget">
                                 <div class="service-img">
-                                    <a href="service-details.html">
+                                    <a href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>">
                                         <img class="img-fluid serv-img" alt="Service Image"
                                             src="<?=base_url();?>front/img/services/service-01.jpg">
                                     </a>
@@ -103,13 +103,14 @@
                                                 <?=number_format($u['start_price'],2);?></span>
                                         </div>
                                         <div class="cate-list">
-                                            <a class="bg-yellow" href="service-details.html">Cleaning</a>
+                                            <a class="bg-yellow"
+                                                href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>">Cleaning</a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="service-content">
                                     <h3 class="title">
-                                        <a href="service-details.html"><?=$u['name'];?></a>
+                                        <a href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>"><?=$u['name'];?></a>
                                     </h3>
                                     <div class="rating">
                                         <i class="fas fa-star filled"></i>
