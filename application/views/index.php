@@ -29,14 +29,14 @@
                     <form action="https://html.truelysell.com/template/search.html">
                         <div class="search-input line">
                             <div class="form-group mb-0">
-                                <input type="text" id="category_id" class="form-control"
-                                    placeholder="What are you looking for?">
+                                <input type="text" id="category" name="category" class="form-control"
+                                    placeholder="Category you looking for?">
                             </div>
                         </div>
                         <div class="search-input">
                             <i class="fas fa-location-arrow bficon"></i>
                             <div class="form-group mb-0">
-                                <input type="text" class="form-control" placeholder="Your Location">
+                                <input type="text" class="form-control" placeholder="Location">
                             </div>
                         </div>
                         <div class="search-btn">

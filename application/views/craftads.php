@@ -33,13 +33,18 @@
                 <div class="card filter-card">
                     <div class="card-body">
                         <h4 class="card-title mb-4">Search Filter</h4>
-                        <form id="search_form">
+                        <form id="search_form" action="<?=base_url();?>Home/refresh_members" method="post">
                             <div class="filter-widget">
                                 <div class="filter-list">
                                     <h4 class="filter-title">Keyword</h4>
-                                    <input type="text" class="form-control" placeholder="What are you looking for?">
+                                    <input type="text" class="form-control" name="keyword" id="keyword"
+                                        placeholder="What are you looking for?">
+
+                                    <input type="hidden" name="country" id="country">
+                                    <input type="hidden" name="city" id="city">
+                                    <input type="hidden" name="region_code" id="region_code">
                                 </div>
-                                <div class="filter-list">
+                                <!-- <div class="filter-list">
                                     <h4 class="filter-title">Sort By</h4>
                                     <select class="form-control selectbox select form-select">
                                         <option>Sort By</option>
@@ -47,23 +52,25 @@
                                         <option>Price High to Low</option>
                                         <option>Newest</option>
                                     </select>
-                                </div>
+                                </div> -->
                                 <div class="filter-list">
                                     <h4 class="filter-title">Categories</h4>
-                                    <select class="form-control form-control selectbox select form-select">
+                                    <select class="form-control form-control selectbox select form-select"
+                                        name="category_id" id="category_id" required>
                                         <option>All Categories</option>
                                         <?php foreach($this->M_category->get_categories() as $cat){?>
-                                        <option><?=$cat['category'];?></option>
+                                        <option value=" <?=$cat['category_id'];?>"><?=$cat['category'];?></option>
                                         <?php }?>
                                     </select>
                                 </div>
-                                <div class="filter-list">
+                                <div class=" filter-list">
                                     <h4 class="filter-title">Location</h4>
-                                    <input class="form-control" type="text" placeholder="Search Location">
+                                    <input class="form-control" type="text" id="exact_location" name="exact_location"
+                                        placeholder=" Search Location">
                                 </div>
                             </div>
                             <button class="btn btn-primary pl-5 pr-5 btn-block get_services w-100"
-                                type="button">Search</button>
+                                type="submit">Search</button>
                         </form>
                     </div>
                 </div>
@@ -80,26 +87,21 @@
                     </div>
                 </div>
                 <div>
-                    <div class="row">
+                    <div class="row" id="listo">
                         <?php foreach($this->M_user->get_members() as $u){?>
-                        <div class="col-lg-4 col-md-6">
+                        <div class="col-lg-3 col-md-6">
                             <div class="service-widget">
                                 <div class="service-img">
                                     <a href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>">
-                                        <img class="img-fluid serv-img" alt="Service Image"
-                                            src="<?=base_url();?>front/img/services/service-01.jpg">
+
+                                        <img class="img-fluid serv-img"
+                                            src="<?= (file_exists(base_url().'uploads/users/'.$u['photo'])) ? base_url().'uploads/users/'.$u['photo'] : base_url().'uploads/users/noImage.png' ?>">
                                     </a>
-                                    <div class="fav-btn">
-                                        <a href="javascript:void(0)" class="fav-icon">
-                                            <i class="fas fa-heart"></i>
-                                        </a>
-                                    </div>
+
                                     <div class="item-info">
                                         <div class="service-user">
-                                            <a href="#">
-                                                <img src="<?=base_url();?>front/img/customer/user-01.jpg" alt="">
-                                            </a>
-                                            <span class="service-price">From
+
+                                            <span class="service-price">Start Price :
                                                 <?=number_format($u['start_price'],2);?></span>
                                         </div>
                                         <div class="cate-list">
@@ -135,8 +137,6 @@
                             </div>
                         </div>
                         <?php }?>
-
-
                     </div>
                 </div>
             </div>
@@ -148,4 +148,4 @@
 <!-- /Footer Top -->
 
 <!-- Footer Bottom -->
-<?php include 'footerr.php';
+<?php include 'footerr.php';?>

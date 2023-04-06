@@ -37,12 +37,12 @@
                                     <label>Exact Location<span class="text-danger">*</span></label>
                                     <input placeholder="e.g Chirimba" class="form-control" type="text"
                                         name="exact_location" id="exact_location" required>
-
                                     <input type="hidden" name="country" id="country">
                                     <input type="hidden" name="city" id="city">
                                     <input type="hidden" name="country_calling_code" id="country_calling_code">
                                     <input type="hidden" name="country_code" id="country_code">
-
+                                    <input type="hidden" name="region" id="region">
+                                    <input type="hidden" name="region_code" id="region_code">
                                 </div>
 
 

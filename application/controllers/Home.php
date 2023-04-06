@@ -202,6 +202,8 @@ class home extends CI_Controller {
         $data["city"] = $this->input->post('city');
         $data["country_calling_code"] = $this->input->post('country_calling_code');
         $data["country_code"] = $this->input->post('country_code');
+        $data["region"] = $this->input->post('region');
+        $data["region_code"] = $this->input->post('region_code');
         $check = $this->M_user->check_phone($phone);
 
         if($check == 1){
@@ -219,52 +221,85 @@ class home extends CI_Controller {
 
         $keyword = $this->input->post('keyword');
         $category_id = $this->input->post('category_id');
-        $country_id = $this->input->post('country_id');
-        $district_id = $this->input->post('district_id');
-        $location_id = $this->input->post('location_id');
+        $exact_location = $this->input->post('exact_location');
+        
+        $country = $this->input->post('country');
+        $city = $this->input->post('city');
+        $region_code = $this->input->post('region_code');
 
-    if (!empty($keyword) && empty($category_id) && empty($country_id) && empty($district_id) && empty($location_id)) {
+    if (!empty($keyword) && empty($exact_location) && empty($category_id)) {
             $this->db->like('name',$keyword);
             $this->db->where('deleted',0);
             $this->db->where('role','member');
+            $this->db->where('region_code',$region_code);
+            $this->db->where('country',$country);
+            $this->db->where('city',$city);
         }
 
-    if (empty($keyword) && !empty($category_id) && empty($country_id) && empty($district_id) && empty($location_id)) {
+    if (empty($keyword) && !empty($category_id) && empty($exact_location)) {
             $this->db->where('category_id',$category_id);
             $this->db->where('deleted',0);
             $this->db->where('role','member');
+            $this->db->where('region_code',$region_code);
+            $this->db->where('country',$country);
+            $this->db->where('city',$city);
         }
 
-    if (empty($keyword) && empty($category_id) && !empty($country_id) && !empty($district_id) && !empty($location_id)) {
-            $this->db->where('country_id',$country_id);
-            $this->db->where('district_id',$district_id);
-            $this->db->where('location_id',$location_id);
+    if (empty($keyword) && empty($category_id) && !empty($exact_location)) {
+            $this->db->like('exact_location',$exact_location);
             $this->db->where('deleted',0);
             $this->db->where('role','member');
+            $this->db->where('region_code',$region_code);
+            $this->db->where('country',$country);
+            $this->db->where('city',$city);
         }
 
-    if (empty($keyword) && !empty($category_id) && !empty($country_id) && !empty($district_id) && !empty($location_id)) {
+    if (!empty($keyword) && !empty($category_id) && empty($exact_location)) {
             $this->db->where('category_id',$category_id);
-            $this->db->where('country_id',$country_id);
-            $this->db->where('district_id',$district_id);
-            $this->db->where('location_id',$location_id);
-            $this->db->where('deleted',0);
-            $this->db->where('role','member');
-        }
-
-    if (!empty($keyword) && !empty($category_id) && !empty($country_id) && !empty($district_id) && !empty($location_id)) {
             $this->db->like('name',$keyword);
-            $this->db->where('category_id',$category_id);
-            $this->db->where('country_id',$country_id);
-            $this->db->where('district_id',$district_id);
-            $this->db->where('location_id',$location_id);
             $this->db->where('deleted',0);
             $this->db->where('role','member');
+            $this->db->where('region_code',$region_code);
+            $this->db->where('country',$country);
+            $this->db->where('city',$city);
+        }
+
+    if (!empty($keyword) && empty($category_id) && !empty($exact_location)) {
+            $this->db->like('name',$keyword);
+            $this->db->like('exact_location',$exact_location);
+            $this->db->where('deleted',0);
+            $this->db->where('role','member');
+            $this->db->where('region_code',$region_code);
+            $this->db->where('country',$country);
+            $this->db->where('city',$city);
+        }
+
+        if (empty($keyword) && !empty($category_id) && !empty($exact_location)) {
+            $this->db->where('category_id',$category_id);
+            $this->db->like('exact_location',$exact_location);
+            $this->db->where('deleted',0);
+            $this->db->where('role','member');
+            $this->db->where('region_code',$region_code);
+            $this->db->where('country',$country);
+            $this->db->where('city',$city);
+        }
+
+        
+        if (!empty($keyword) && !empty($category_id) && !empty($exact_location)) {
+            $this->db->where('category_id',$category_id);
+            $this->db->like('exact_location',$exact_location);
+            $this->db->like('keyword',$keyword);
+            $this->db->where('deleted',0);
+            $this->db->where('role','member');
+            $this->db->where('region_code',$region_code);
+            $this->db->where('country',$country);
+            $this->db->where('city',$city);
         }
 
         $data['members'] = $this->db->get('users')->result_array();
+        $data['page_title'] = "Search Filter";
+
         $this->load->view('refresh_members',$data); 
-        return;          
     }
    
 }

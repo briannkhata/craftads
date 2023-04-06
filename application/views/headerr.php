@@ -22,6 +22,7 @@
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="<?=base_url();?>front/plugins/owlcarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="<?=base_url();?>front/plugins/owlcarousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
 
     <!-- Aos CSS -->
     <link rel="stylesheet" href="<?=base_url();?>front/plugins/aos/aos.css">

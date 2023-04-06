@@ -48,6 +48,7 @@
 <!-- jQuery -->
 <script src="<?=base_url();?>front/js/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
 <!-- Bootstrap Core JS -->
 <script src="<?=base_url();?>front/js/popper.min.js"></script>
@@ -77,7 +78,7 @@
 
 <script>
 $(document).ready(function() {
-    $('#category').on('input', function() {
+    $('#category').on('keydown', function() {
         var category = $(this).val();
         $.ajax({
             url: '<?=base_url();?>Home/getCAT',
@@ -91,18 +92,44 @@ $(document).ready(function() {
         });
     });
 
-
-
-
-
     setTimeout(function() {
         $(".alert ").fadeOut();
     }, 5000);
 });
 
+
+$(function() {
+    var availableTags = [
+        "ActionScript",
+        "AppleScript",
+        "Asp",
+        "BASIC",
+        "C",
+        "C++",
+        "Clojure",
+        "COBOL",
+        "ColdFusion",
+        "Erlang",
+        "Fortran",
+        "Groovy",
+        "Haskell",
+        "Java",
+        "JavaScript",
+        "Lisp",
+        "Perl",
+        "PHP",
+        "Python",
+        "Ruby",
+        "Scala",
+        "Scheme"
+    ];
+    $("#category").autocomplete({
+        source: availableTags
+    });
+});
+
 function save_enquiry() {
     try {
-
         if (document.getElementById("email").value == '' ||
             document.getElementById("phone").value == '' ||
             document.getElementById("name").value == '' ||
@@ -123,23 +150,24 @@ function save_enquiry() {
                 });
         }
     } catch (err) {
-        //Clear 
         alert(err);
     }
 }
-
 
 $.getJSON("https://ipapi.co/json/", function(data) {
     var country = data.country_name;
     var city = data.city;
     var country_code = data.country_code;
     var country_calling_code = data.country_calling_code;
+    var region = data.region;
+    var region_code = data.region_code;
 
     $("#country").val(country);
     $("#city").val(city);
     $("#country_code").val(country_code);
     $("#country_calling_code").val(country_calling_code);
-
+    $("#region").val(region);
+    $("#region_code").val(region_code);
 });
 </script>
 
