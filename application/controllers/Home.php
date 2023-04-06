@@ -198,6 +198,10 @@ class home extends CI_Controller {
         $data['date_joined'] = date('Y-m-d h:i:s');
         $data['category_id'] = $this->input->post('category_id');
         $data['exact_location'] = $this->input->post('exact_location');
+        $data["country"] = $this->input->post('country');
+        $data["city"] = $this->input->post('city');
+        $data["country_calling_code"] = $this->input->post('country_calling_code');
+        $data["country_code"] = $this->input->post('country_code');
         $check = $this->M_user->check_phone($phone);
 
         if($check == 1){
@@ -210,7 +214,6 @@ class home extends CI_Controller {
           redirect('Home/join');
         }
     }
-
 
     function refresh_members(){
 

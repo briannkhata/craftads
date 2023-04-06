@@ -127,6 +127,20 @@ function save_enquiry() {
         alert(err);
     }
 }
+
+
+$.getJSON("https://ipapi.co/json/", function(data) {
+    var country = data.country_name;
+    var city = data.city;
+    var country_code = data.country_code;
+    var country_calling_code = data.country_calling_code;
+
+    $("#country").val(country);
+    $("#city").val(city);
+    $("#country_code").val(country_code);
+    $("#country_calling_code").val(country_calling_code);
+
+});
 </script>
 
 
