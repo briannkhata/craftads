@@ -12,8 +12,8 @@ class Login extends CI_Controller {
     }
 
 	function signin(){   
-		$username = $this->input->post('username');
-		$password = MD5($this->input->post('password'));			  
+		$phone = $this->input->post('phone');
+		$password = md5($this->input->post('password'));			  
 		$user = $this->db->query("SELECT * FROM users WHERE phone ='$phone' AND password ='$password'");
 		$row = $user->row();
 		if (isset($row)){

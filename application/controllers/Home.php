@@ -190,35 +190,25 @@ class home extends CI_Controller {
         return;              
     }
 
-    function register(){
-         if (!empty($_FILES['photo']['name'])):
-            move_uploaded_file($_FILES['photo']['tmp_name'],'uploads/users/'.$_FILES['photo']['name']);
-            $data['photo']   = $_FILES['photo']['name'];
-        endif;
-        $data['category_id'] = $this->input->post('category_id');
+    function register(){       
         $data['name'] = $this->input->post('name');
-        $username = $this->input->post('username');
+        $phone = $this->input->post('phone');
         $data['password'] = md5($this->input->post('password'));
         $data['role'] = 'member';
         $data['date_joined'] = date('Y-m-d h:i:s');
         $data['category_id'] = $this->input->post('category_id');
-        $data['country_id'] = $this->input->post('country_id');
-        $data['district_id'] = $this->input->post('district_id');
-        $data['location_id'] = $this->input->post('location_id');
-        $data['address'] = $this->input->post('address');
-        $check = $this->M_user->check_username($username);
+        $data['exact_location'] = $this->input->post('exact_location');
+        $check = $this->M_user->check_phone($phone);
 
         if($check == 1){
-          $this->session->set_flashdata('message2','Username  '.$username.' already exists! Choose Another one');
-          redirect('home/join');
+          $this->session->set_flashdata('message2','Phone  '.$phone.' already exists! Choose Another one');
+          redirect('Home/join');
         }else{
-          $data['username'] = $username;
+          $data['phone'] = $phone;
           $this->db->insert('users',$data);
+          $this->session->set_flashdata('message','Account created successfully, please login to activate your account');
+          redirect('Home/join');
         }
-
-        $this->session->set_flashdata('message','Account created successfully, please login to activate your account');
-        redirect('home/login');
-              
     }
 
 

@@ -49,11 +49,3 @@
 
 <!-- Footer -->
 <?php include 'footerr.php';?>
-
-<script>
-$(document).ready(function() {
-    setTimeout(function() {
-        $(".alert ").fadeOut();
-    }, 5000); // 5000 milliseconds = 5 seconds
-});
-</script>

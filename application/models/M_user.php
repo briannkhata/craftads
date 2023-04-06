@@ -162,8 +162,8 @@ class M_user extends CI_Model {
 			return $query->result_array();
 		}
 
-		function check_username($username){
-   		    $this->db->where('username',$username);
+		function check_phone($phone){
+   		    $this->db->where('phone',$phone);
 			$query = $this->db->get('users')->result_array();
 			if(count($query) > 0){
 				return 1;
