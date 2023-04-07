@@ -12,7 +12,7 @@
                     <div class="service-header">
                         <div class="d-flex justify-content-between align-items-center">
                             <h1><?=$su['name'];?></h1>
-
+                            <small><?=$su['tagline'];?></small>
                         </div>
                         <address class="service-location"><i class="fas fa-location-arrow"></i>
                             <?=$su['exact_location'];?></address>
@@ -32,9 +32,8 @@
                         <div class="images-carousel owl-carousel owl-theme">
                             <?php foreach($this->M_image->get_user_images($user_id) as $ui){?>
                             <div class="item">
-                                <img class="img-fluid serv-img"
-                                    src="<?= (file_exists(base_url().'uploads/gallery/'.$ui['image'])) ? base_url().'uploads/gallery/'.$ui['image'] : base_url().'uploads/users/noImage.png' ?>">
-
+                                <img class="img-fluid"
+                                    src="<?= (!file_exists(base_url().'uploads/gallery/'.$ui['image'])) ? base_url().'uploads/gallery/'.$ui['image'] : base_url().'uploads/users/noImage.png' ?>">
                             </div>
                             <?php }?>
 
@@ -62,7 +61,7 @@
                                 <div class="card service-description">
                                     <div class="card-body">
                                         <h5 class="card-title">Service Details</h5>
-                                        <p class="mb-0"><?=$su['service_details'];?></p>
+                                        <p class="mb-0"><?=strip_tags($su['details']);?></p>
                                     </div>
                                 </div>
                             </div>
@@ -121,12 +120,13 @@
                             <div class="service-img">
                                 <a href="<?=base_url();?>Home/profile/<?=$uc['user_id'];?>">
                                     <img class="img-fluid serv-img"
-                                        src="<?= (file_exists(base_url().'uploads/users/'.$uc['photo'])) ? base_url().'uploads/users/'.$uc['photo'] : base_url().'uploads/users/noImage.png' ?>">
+                                        src="<?= (!file_exists(base_url().'uploads/users/'.$uc['photo'])) ? base_url().'uploads/users/'.$uc['photo'] : base_url().'uploads/users/noImage.png' ?>">
                                 </a>
                                 <div class="item-info">
                                     <div class="service-user">
 
-                                        <span class="service-price"><?=number_format($uc['start_price'],2);?></span>
+                                        <span class="service-price"><span class="karense"></span>
+                                            : <?=number_format($uc['start_price'],2);?></span>
                                     </div>
                                     <div class="cate-list">
                                         <a class="bg-yellow" href="<?=base_url();?>Home/profile/<?=$uc['user_id'];?>">
@@ -169,10 +169,11 @@
             <div class="col-lg-4 theiaStickySidebar">
                 <div class="sidebar-widget widget">
                     <div class="service-amount">
-                        <span><?=number_format($su['start_price'],2);?></span>
+                        <span><span class="karense"></span> : <?=number_format($su['start_price'],2);?></span>
                     </div>
                     <div class="service-book">
-                        <a href="https://api.whatsapp.com/send?phone=<?=$uc['phone'];?>" class="btn btn-primary"> Book
+                        <a href="https://api.whatsapp.com/send?phone=<?=$su['phone'];?>" class="btn btn-primary">
+                            Book
                             Service </a>
                     </div>
                 </div>
@@ -183,10 +184,19 @@
                             <p class="mb-1"><i class="far fa-envelope"></i> <span><?=$su['email'];?></span>
                             </p>
                         </div>
+                        <br>
                         <div class="provider-info">
                             <p class="mb-0"><i class="fas fa-phone-alt"></i> <?=$su['phone'];?></p>
                         </div>
+                    </div>
 
+                    <div class="card-body">
+
+                        <div class="provider-info">
+                            <p class="mb-1"><i class="far fa-location"></i>
+                                <span><?=strip_tags($su['address']);?></span>
+                            </p>
+                        </div>
 
                     </div>
                 </div>

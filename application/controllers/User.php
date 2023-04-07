@@ -322,27 +322,27 @@ class user extends CI_Controller {
     function update_profile(){
         $data['name']    = $this->input->post('name');
         $data['email']= $this->input->post('email');
-        $data['gender']   = $this->input->post('gender');
         $data['phone']    = $this->input->post('phone');
-        $data['alt_phone']    = $this->input->post('alt_phone');
-        $data['alt_email']    = $this->input->post('alt_email');
-        $data['location_id']    = $this->input->post('location_id');
-        $data['country_id']    = $this->input->post('country_id');
-		$data['address'] = $this->input->post('address');
-    	$data['district_id']  = $this->input->post('district_id');
-		$data['category_id']  = $this->input->post('category_id');
-		$data['details']      = $this->input->post('details');
+        $data['exact_location'] = $this->input->post('exact_location');
+        $data["country"] = $this->input->post('country');
+        $data["city"] = $this->input->post('city');
+        $data["country_calling_code"] = $this->input->post('country_calling_code');
+        $data["country_code"] = $this->input->post('country_code');
+        $data["region"] = $this->input->post('region');
+        $data["region_code"] = $this->input->post('region_code');
+		$data['address'] = nl2br(htmlentities($this->input->post('address'), ENT_QUOTES, 'UTF-8'));;
+		$data['details']      = nl2br(htmlentities($this->input->post('details'), ENT_QUOTES, 'UTF-8'));
 		$data['twitter']       = $this->input->post('twitter');
 		$data['facebook']    = $this->input->post('facebook');
         $data['instagram']      = $this->input->post('instagram');
+		$data['linkedin']      = $this->input->post('linkedin');
         $data['tagline']      = $this->input->post('tagline');
         $data['start_price']      = $this->input->post('start_price');
-		$data['profession']      = $this->input->post('profession');
-
+		$data['category_id']      = $this->input->post('category_id');
 		$this->db->where('user_id',$this->session->userdata('user_id'));
 		$this->db->update('users',$data);
-		$this->session->set_flashdata('message','Profile updated successfully');
-		redirect('user/profile');
+		$this->session->set_flashdata('message','Use details updated successfully');
+		redirect('User/profile');
 	}
 
     function profile_picture(){

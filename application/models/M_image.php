@@ -21,6 +21,7 @@ class M_image extends CI_Model {
 
 		function get_user_images($user_id){
 		    $this->db->where('user_id',$user_id);
+			$this->db->order_by('image_id','random()');
 			$query = $this->db->get('images');
 			return $query->result_array();
 		}
@@ -48,4 +49,3 @@ class M_image extends CI_Model {
 
 		
 }
-

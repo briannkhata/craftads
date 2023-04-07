@@ -10,7 +10,7 @@
 					        <!-- BEGIN FORM-->
 					        <?php foreach ($this->M_user->get_user_by_id($user_id) as $key) { ?>
 
-					        <form action="<?=base_url();?>user/update_profile" method="post">
+					        <form action="<?=base_url();?>User/update_profile" method="post">
 					            <br>
 
 					            <div class="form-body">
@@ -26,7 +26,7 @@
 					                    </div>
 					                </div>
 					                <div class="row">
-					                    <div class="col-md-4">
+					                    <div class="col-md-12">
 					                        <div class="form-group">
 					                            <label class="control-label">Category</label>
 					                            <select class="form-control" name="category_id">
@@ -42,19 +42,12 @@
 
 					                        </div>
 					                    </div>
-					                    <div class="col-md-4">
-					                        <div class="form-group">
-					                            <label class="control-label">Profession</label>
-					                            <input type="text" name="profession" class="form-control"
-					                                value="<?=$key['profession'];?>" required>
-					                        </div>
-					                    </div>
 
-					                    <div class="col-md-4">
+
+					                    <div class="col-md-12">
 					                        <div class="form-group">
 					                            <label class="control-label">Phone</label>
-					                            <input type="text" name="phone" class="form-control" value="<?=$key['phone'];?>"
-					                                readonly>
+					                            <input type="tel" name="phone" class="form-control" value="<?=$key['phone'];?>">
 					                        </div>
 					                    </div>
 					                </div>
@@ -62,9 +55,7 @@
 
 					                <div class="row">
 
-
-
-					                    <div class="col-md-4">
+					                    <div class="col-md-12">
 					                        <div class="form-group">
 					                            <label class="control-label">Email</label>
 					                            <input type="email" name="email" class="form-control" value="<?=$key['email'];?>"
@@ -72,9 +63,7 @@
 					                        </div>
 					                    </div>
 
-
-
-					                    <div class="col-md-4">
+					                    <div class="col-md-12">
 					                        <div class="form-group">
 					                            <label class="control-label">Start Price</label>
 					                            <input type="text" name="start_price" class="form-control"
@@ -85,55 +74,18 @@
 					                </div>
 
 					                <div class="row">
-					                    <div class="col-md-4">
+					                    <div class="col-md-12">
 					                        <div class="form-group">
-					                            <label class="control-label">Country</label>
-					                            <select class="form-control" name="country_id">
-					                                <option selected="" disabled="">Option</option>
-					                                <?php foreach ($this->M_country->get_countries() as $row) {?>
-					                                <option <?php if($key['country_id'] == $row['country_id']) echo 'selected';?>
-					                                    value="<?=$row['country_id'];?>">
-					                                    <?=$row['country'];?>
-					                                </option>
-					                                <?php }?>
+					                            <label class="control-label">Exact Location</label>
+					                            <input type="text" class="form-control" name="exact_location"
+					                                value="<?=$key['exact_location'];?>">
 
-					                            </select>
-
-					                        </div>
-					                    </div>
-
-
-					                    <div class="col-md-4">
-					                        <div class="form-group">
-					                            <label class="control-label">Province/District</label>
-					                            <select class="form-control" name="district_id">
-					                                <option selected="" disabled="">Option</option>
-					                                <?php foreach ($this->M_district->get_districts() as $row) {?>
-					                                <option <?php if($key['district_id'] == $row['district_id']) echo 'selected';?>
-					                                    value="<?=$row['district_id'];?>">
-					                                    <?=$row['district'];?>
-					                                </option>
-					                                <?php }?>
-
-					                            </select>
-
-					                        </div>
-					                    </div>
-
-					                    <div class="col-md-4">
-					                        <div class="form-group">
-					                            <label class="control-label">Location (township)</label>
-					                            <select class="form-control" name="location_id">
-					                                <option selected="" disabled="">Option</option>
-					                                <?php foreach ($this->M_location->get_locations() as $row) {?>
-					                                <option <?php if($key['location_id'] == $row['location_id']) echo 'selected';?>
-					                                    value="<?=$row['location_id'];?>">
-					                                    <?=$row['location'];?>
-					                                </option>
-					                                <?php }?>
-
-					                            </select>
-
+					                            <input type="hidden" name="country" id="country">
+					                            <input type="hidden" name="city" id="city">
+					                            <input type="hidden" name="country_calling_code" id="country_calling_code">
+					                            <input type="hidden" name="country_code" id="country_code">
+					                            <input type="hidden" name="region" id="region">
+					                            <input type="hidden" name="region_code" id="region_code">
 					                        </div>
 					                    </div>
 					                </div>
@@ -141,27 +93,25 @@
 
 
 					                <div class="row">
-					                    <div class="col-md-6">
+					                    <div class="col-md-12">
 					                        <div class="form-group">
 					                            <label class="control-label">Address</label>
 					                            <textarea class="form-control" name="address">
-																<?=$key['address'];?>
+																<?=strip_tags($key['address']);?>
 															</textarea>
 					                        </div>
 					                    </div>
 
-					                    <div class="col-md-6">
+					                    <div class="col-md-12">
 					                        <div class="form-group">
 					                            <label class="control-label">Tagline</label>
-					                            <textarea class="form-control" name="tagline">
-																<?=$key['tagline'];?>
-															</textarea>
+					                            <input type="text" class="form-control" name="tagline" value="<?=$key['tagline'];?>">
 					                        </div>
 					                    </div>
 					                </div>
 
-					                <div class="row">
-					                    <div class="col-md-4">
+					                <div class=" row">
+					                    <div class="col-md-12">
 					                        <div class="form-group">
 					                            <label class="control-label">Twitter</label>
 					                            <input type="text" name="twitter" class="form-control" value="<?=$key['twitter'];?>">
@@ -169,7 +119,7 @@
 					                        </div>
 					                    </div>
 
-					                    <div class="col-md-4">
+					                    <div class="col-md-12">
 					                        <div class="form-group">
 					                            <label class="control-label">Instagram</label>
 					                            <input type="text" name="instagram" class="form-control"
@@ -178,10 +128,18 @@
 					                        </div>
 					                    </div>
 
-					                    <div class="col-md-4">
+					                    <div class="col-md-12">
 					                        <div class="form-group">
 					                            <label class="control-label">Facebook</label>
 					                            <input type="text" name="facebook" class="form-control" value="<?=$key['facebook'];?>">
+
+					                        </div>
+					                    </div>
+
+					                    <div class="col-md-12">
+					                        <div class="form-group">
+					                            <label class="control-label">Linked In</label>
+					                            <input type="text" name="linkedin" class="form-control" value="<?=$key['linkedin'];?>">
 
 					                        </div>
 					                    </div>
@@ -191,9 +149,9 @@
 					                <div class="row">
 					                    <div class="col-md-12">
 					                        <div class="form-group">
-					                            <label class="control-label">About Me</label>
+					                            <label class="control-label">Service Details</label>
 					                            <textarea class="form-control" name="details" rows="10">
-																<?=$key['details'];?>
+																<?=strip_tags($key['details']);?>
 															</textarea>
 					                        </div>
 					                    </div>
@@ -203,9 +161,7 @@
 
 
 					            <div class="form-actions left">
-
 					                <button type="submit" class="btn default blue-stripe"> Update</button>
-
 					            </div>
 					        </form>
 					        <?php } ?>

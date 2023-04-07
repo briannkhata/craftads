@@ -89,19 +89,19 @@
                 <div>
                     <div class="row" id="listo">
                         <?php foreach($this->M_user->get_members() as $u){?>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-4 col-md-6">
                             <div class="service-widget">
                                 <div class="service-img">
                                     <a href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>">
 
                                         <img class="img-fluid serv-img"
-                                            src="<?= (file_exists(base_url().'uploads/users/'.$u['photo'])) ? base_url().'uploads/users/'.$u['photo'] : base_url().'uploads/users/noImage.png' ?>">
+                                            src="<?= (!file_exists(base_url().'uploads/users/'.$u['photo'])) ? base_url().'uploads/users/'.$u['photo'] : base_url().'uploads/users/noImage.png' ?>">
                                     </a>
 
                                     <div class="item-info">
                                         <div class="service-user">
 
-                                            <span class="service-price">Start Price :
+                                            <span class="service-price"><span class="karense"></span> :
                                                 <?=number_format($u['start_price'],2);?></span>
                                         </div>
                                         <div class="cate-list">
@@ -116,12 +116,20 @@
                                         <a href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>"><?=$u['name'];?></a>
                                     </h3>
                                     <div class="rating">
-                                        <i class="fas fa-star filled"></i>
-                                        <i class="fas fa-star filled"></i>
-                                        <i class="fas fa-star filled"></i>
-                                        <i class="fas fa-star filled"></i>
-                                        <i class="fas fa-star"></i>
-                                        <span class="d-inline-block average-rating">(4.3)</span>
+                                        <?php
+                                            $empty_star = '<i class="fas fa-star"></i>';
+                                            $full_star = '<i class="fas fa-star filled"></i>';
+                                            $num_stars = 5 - $u['rating'];
+                                            
+                                            for ($i = 0; $i < $u['rating']; $i++) {
+                                                echo $full_star;
+                                            }
+                                            
+                                            for ($i = 0; $i < $num_stars; $i++) {
+                                                echo $empty_star;
+                                            }
+
+                                        ?>
                                     </div>
                                     <div class="user-info">
                                         <div class="row">
@@ -132,9 +140,21 @@
                                                         <?=$u['phone'];?></a>
                                                 </span>
                                             </span>
+
+
                                             <span class="col ser-location">
                                                 <span><?=$u['exact_location'];?></span> <i
                                                     class="fas fa-map-marker-alt ms-1"></i>
+                                            </span>
+                                        </div>
+
+                                        <div class="row" style="margin-top:6%;">
+                                            <span class="col-auto ser-contact">
+                                                <i class="fas fa-envelope"></i>
+                                                <span>
+                                                    <a href="mailto:<?=$u['email'];?>" title="click to send Email">
+                                                        &nbsp <?=$u['email'];?></a>
+                                                </span>
                                             </span>
                                         </div>
                                     </div>

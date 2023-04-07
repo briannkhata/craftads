@@ -223,6 +223,19 @@ class M_user extends CI_Model {
 			
 		}
 
+		function get_phone($user_id){
+			$this->db->where('user_id',$user_id);
+		 $query = $this->db->get('users')->result_array();
+		 if(count($query) > 0){
+			 foreach ($query as $row) {
+				 return $row['phone'];
+			 }
+		 }else {
+			 return '';
+		 }
+		 
+	 }
+
 		function get_email($user_id){
    		    $this->db->where('user_id',$user_id);
 			$query = $this->db->get('users')->result_array();
