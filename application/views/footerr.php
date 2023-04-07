@@ -161,6 +161,8 @@ $.getJSON("https://ipapi.co/json/", function(data) {
     var country_calling_code = data.country_calling_code;
     var region = data.region;
     var region_code = data.region_code;
+    var karense = data.currency;
+
 
     $("#country").val(country);
     $("#city").val(city);
@@ -168,7 +170,18 @@ $.getJSON("https://ipapi.co/json/", function(data) {
     $("#country_calling_code").val(country_calling_code);
     $("#region").val(region);
     $("#region_code").val(region_code);
+    $(".karense").text(karense);
+
 });
+
+function togglePasswordVisibility() {
+    var passwordInput = document.getElementById("password");
+    if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+    } else {
+        passwordInput.type = "password";
+    }
+}
 </script>
 
 

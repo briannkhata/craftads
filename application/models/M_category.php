@@ -26,8 +26,18 @@ class M_category extends CI_Model {
 			$query = $this->db->get('categories');
 			return $query->result_array();
 		}
-
+		
 		function get_category($category_id){
+			$query = $this->db->select('category')
+							  ->from('categories')
+							  ->where('category_id',14)
+							  ->get();
+				return $query->row()->category;
+			
+		}
+
+
+		function get_category2($category_id){
    		    $this->db->where('category_id',$category_id);
 			$query = $this->db->get('categories')->result_array();
 			if(count($query) > 0){
@@ -37,7 +47,6 @@ class M_category extends CI_Model {
 			}else {
 				return '';
 			}
-			
 		}
 
 		function get_views($category_id){

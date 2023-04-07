@@ -2,6 +2,36 @@
 
 <!-- /Header -->
 
+<style>
+.input-group-text {
+    cursor: pointer;
+}
+
+.show-password-label {
+    margin-left: 5px;
+}
+
+#show-password-checkbox:checked+.show-password-label:before {
+    content: "\f06e";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+#show-password-checkbox:not(:checked)+.show-password-label:before {
+    content: "\f070";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+#show-password-checkbox:checked+.show-password-label {
+    color: #3D9970;
+}
+
+#show-password-checkbox:not(:checked)+.show-password-label {
+    color: #555;
+}
+</style>
+
 <div class="content">
     <div class="container" style="height:750px;">
         <div class="row justify-content-center">
@@ -28,9 +58,21 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Password <span class="text-danger">*</span></label>
-                                    <input class="form-control" type="password" name="password" id="password" required>
+                                    <div class="input-group">
+                                        <input class="form-control" type="password" name="password" id="password"
+                                            required>
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">
+                                                <input type="checkbox" onclick="togglePasswordVisibility()"
+                                                    id="show-password-checkbox">
+                                                <label for="show-password-checkbox" class="show-password-label">Show
+                                                    password</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
+
 
                             <div class="col-lg-12">
                                 <div class="form-group">

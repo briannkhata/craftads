@@ -25,7 +25,7 @@
     </div>
 </div>
 <!-- /Breadcrumb -->
-<form id="search_form" action="<?=base_url();?>Home/refresh_members" method="post">
+<form action="<?=base_url();?>Home/refresh_members" method="post">
 
     <div class="content">
         <div class="container-fluid">

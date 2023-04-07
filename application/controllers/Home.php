@@ -309,7 +309,8 @@ class home extends CI_Controller {
 
 
     $keyword = $this->input->post('keyword');
-    $category_id = $this->input->post('category_id');
+    echo $category_id = $this->input->post('category_id');
+    return;
     $exact_location = $this->input->post('exact_location');
     $country = $this->input->post('country');
     $city = $this->input->post('city');
@@ -331,40 +332,36 @@ class home extends CI_Controller {
     if (!empty($exact_location)) {
         $this->db->like('exact_location', $exact_location);
         $data['page_title'] = "Search Filter  : ". $exact_location ;
-
     }
     
-    if (!empty($category_id)) {
+    if (isset($category_id)) {
         $this->db->where('category_id', $category_id);
-        //$data['page_title'] = "Search Filter  : ". $this->M_category->get_category($category_id);
+        $data['page_title'] = "Search Filter  : ". $this->M_category->get_category($category_id);
     }
     
-    if (!empty($keyword) && !empty($category_id)) {
+    if (!empty($keyword) && isset($category_id)) {
         $this->db->like('name', $keyword);
         $this->db->where('category_id', $category_id);
         $data['page_title'] = "Search Filter  : ". $this->M_category->get_category($category_id).' | '. $keyword;
-
     }
 
     if (!empty($keyword) && !empty($exact_location)) {
         $this->db->like('name', $keyword);
         $this->db->or_like('exact_location', $exact_location);
         $data['page_title'] = "Search Filter  : ". $exact_location .' | '. $keyword;
-
     }
 
-    if (!empty($category_id) && !empty($exact_location)) {
+    if (isset($category_id) && !empty($exact_location)) {
         $this->db->where('category_id', $category_id);
         $this->db->like('exact_location', $exact_location);
         $data['page_title'] = "Search Filter  : ". $this->M_category->get_category($category_id).' | '.$exact_location;
     }
 
-    if (!empty($category_id) && !empty($exact_location) && !empty($keyword)) {
+    if (isset($category_id) && !empty($exact_location) && !empty($keyword)) {
         $this->db->where('category_id', $category_id);
         $this->db->like('exact_location', $exact_location);
         $this->db->or_like('keyword', $keyword);
         $data['page_title'] = "Search Filter  : ". $this->M_category->get_category($category_id).' | '.$exact_location .' | '. $keyword;
-
     }
 
     $data['members'] = $this->db->get()->result_array();
