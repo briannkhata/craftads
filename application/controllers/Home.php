@@ -193,7 +193,6 @@ class home extends CI_Controller {
 
     function register(){       
         $data['name'] = $this->input->post('name');
-        $phone = $this->input->post('phone');
         $data['password'] = md5($this->input->post('password'));
         $data['role'] = 'member';
         $data['date_joined'] = date('Y-m-d h:i:s');
@@ -205,6 +204,7 @@ class home extends CI_Controller {
         $data["country_code"] = $this->input->post('country_code');
         $data["region"] = $this->input->post('region');
         $data["region_code"] = $this->input->post('region_code');
+        $phone = $data["country_calling_code"].$this->input->post('phone');
         $check = $this->M_user->check_phone($phone);
 
         if($check == 1){
@@ -219,95 +219,6 @@ class home extends CI_Controller {
     }
 
     function refresh_members(){
-
-    //     $keyword = $this->input->post('keyword');
-    //     $category_id = $this->input->post('category_id');
-    //     $exact_location = $this->input->post('exact_location');
-        
-    //     $country = $this->input->post('country');
-    //     $city = $this->input->post('city');
-    //     $region_code = $this->input->post('region_code');
-
-    // if (!empty($keyword) && empty($exact_location) && empty($category_id)) {
-    //         $this->db->like('name',$keyword);
-    //         $this->db->where('deleted',0);
-    //         $this->db->where('role','member');
-    //         $this->db->where('region_code',$region_code);
-    //         $this->db->where('country',$country);
-    //         $this->db->where('city',$city);
-    //     }
-
-    // if (empty($keyword) && !empty($category_id) && empty($exact_location)) {
-    //         $this->db->where('category_id',$category_id);
-    //         $this->db->where('deleted',0);
-    //         $this->db->where('role','member');
-    //         $this->db->where('region_code',$region_code);
-    //         $this->db->where('country',$country);
-    //         $this->db->where('city',$city);
-    //     }
-
-    // if (empty($keyword) && empty($category_id) && !empty($exact_location)) {
-    //         $this->db->like('exact_location',$exact_location);
-    //         $this->db->where('deleted',0);
-    //         $this->db->where('role','member');
-    //         $this->db->where('region_code',$region_code);
-    //         $this->db->where('country',$country);
-    //         $this->db->where('city',$city);
-    //     }
-
-    // if (!empty($keyword) && !empty($category_id) && empty($exact_location)) {
-    //         $this->db->where('category_id',$category_id);
-    //         $this->db->like('name',$keyword);
-    //         $this->db->where('deleted',0);
-    //         $this->db->where('role','member');
-    //         $this->db->where('region_code',$region_code);
-    //         $this->db->where('country',$country);
-    //         $this->db->where('city',$city);
-    //     }
-
-    // if (!empty($keyword) && empty($category_id) && !empty($exact_location)) {
-    //         $this->db->like('name',$keyword);
-    //         $this->db->like('exact_location',$exact_location);
-    //         $this->db->where('deleted',0);
-    //         $this->db->where('role','member');
-    //         $this->db->where('region_code',$region_code);
-    //         $this->db->where('country',$country);
-    //         $this->db->where('city',$city);
-    //     }
-
-    //     if (empty($keyword) && !empty($category_id) && !empty($exact_location)) {
-    //         $this->db->where('category_id',$category_id);
-    //         $this->db->like('exact_location',$exact_location);
-    //         $this->db->where('deleted',0);
-    //         $this->db->where('role','member');
-    //         $this->db->where('region_code',$region_code);
-    //         $this->db->where('country',$country);
-    //         $this->db->where('city',$city);
-    //     }
-
-        
-    //     if (!empty($keyword) && !empty($category_id) && !empty($exact_location)) {
-    //         $this->db->where('category_id',$category_id);
-    //         $this->db->like('exact_location',$exact_location);
-    //         $this->db->like('keyword',$keyword);
-    //         $this->db->where('deleted',0);
-    //         $this->db->where('role','member');
-    //         $this->db->where('region_code',$region_code);
-    //         $this->db->where('country',$country);
-    //         $this->db->where('city',$city);
-    //     }
-
-    //     $data['members'] = $this->db->get('users')->result_array();
-    //     $data['page_title'] = "Search Filter";
-
-    //     $this->load->view('refresh_members',$data); 
-
-
-
-
-
-
-
     $keyword = $this->input->post('keyword');
     echo $category_id = $this->input->post('category_id');
     return;

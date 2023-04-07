@@ -171,7 +171,7 @@ $.getJSON("https://ipapi.co/json/", function(data) {
     $("#region").val(region);
     $("#region_code").val(region_code);
     $(".karense").text(karense);
-
+    $(".country_code").val(country_calling_code);
 });
 
 function togglePasswordVisibility() {

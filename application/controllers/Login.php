@@ -12,7 +12,7 @@ class Login extends CI_Controller {
     }
 
 	function signin(){   
-		$phone = $this->input->post('phone');
+		$phone = $data["country_code"].$this->input->post('phone');
 		$password = md5($this->input->post('password'));			  
 		$user = $this->db->query("SELECT * FROM users WHERE phone ='$phone' AND password ='$password'");
 		$row = $user->row();
