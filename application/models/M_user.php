@@ -7,8 +7,9 @@ class M_user extends CI_Model {
 	    }
 
 	    function get_members(){
-		    //$this->db->where('deleted',0);
+		    $this->db->where('deleted',0);
    		    $this->db->where('role','member');
+			$this->db->order_by('user_id','random()');
 		    $this->db->order_by('user_id');
 			$query = $this->db->get('users');
 			return $query->result_array();
@@ -62,6 +63,7 @@ class M_user extends CI_Model {
 		function get_members_by_category($category_id){
 		    //$this->db->where('deleted',0);
    		    $this->db->where('category_id',$category_id);
+			$this->db->order_by('user_id',random());
    		    $this->db->where('role','member');
 		    $this->db->order_by('user_id');
 			$query = $this->db->get('users');
