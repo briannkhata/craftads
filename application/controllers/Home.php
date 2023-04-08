@@ -192,6 +192,11 @@ class home extends CI_Controller {
     }
 
     function register(){       
+        if (strlen($this->input->post('phone')) > 9) {
+			$this->session->set_flashdata('message2','Invalid phone number - It should not be more than 9 characters');
+			redirect('Home/join');
+		} 
+        
         $data['name'] = $this->input->post('name');
         $data['password'] = md5($this->input->post('password'));
         $data['role'] = 'member';
@@ -208,7 +213,7 @@ class home extends CI_Controller {
         $check = $this->M_user->check_phone($phone);
 
         if($check == 1){
-          $this->session->set_flashdata('message2','Phone  '.$phone.' already exists! Choose Another one');
+          $this->session->set_flashdata('message2','Phone  '.$phone.' Already exists! Choose Another one');
           redirect('Home/join');
         }else{
           $data['phone'] = $phone;

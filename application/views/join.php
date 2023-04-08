@@ -47,6 +47,11 @@
     border-radius: 0 .25rem .25rem 0;
     padding-left: 15px;
 }
+
+select {
+    padding: 3px;
+
+}
 </style>
 
 
@@ -99,20 +104,20 @@
                                         type="hidden" name="region_code" id="region_code"></div>
                             </div>
                             <div class="col-lg-12">
-                                <div class="form-group"><label>Category <span
-                                            class="text-danger">*</span></label><select class="form-control form-select"
-                                        name="category_id" id="category_id">
-                                        <option selected disabled>Choose Category</option><?php foreach($this->M_category->get_categories() as $cat) {
-    ?><option value="<?=$cat['category_id'];?>"><?=$cat['category'];
-    ?></option><?php
-}
+                                <div class="form-group">
+                                    <label>Category <span class="text-danger">*</span></label>
 
-?>
-                                    </select></div>
+                                    <select class="form-control form-select" name="category_id" id="category_id">
+                                        <option selected disabled>Choose Category</option>
+                                        <?php foreach($this->M_category->get_categories() as $cat) { ?>
+                                        <option value="<?=$cat['category_id'];?>"><?=$cat['category'];?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class=" submit-section"><button class="btn btn-primary submit-btn" type="submit"
+                    <div class=" submit-section"><button class="btn btn-primary submit-btn sabu" type="submit"
                             id="join">Join</button>
                     </div><br><?php if ($this->session->flashdata('message')) {
     ?><div class="alert alert-info" role="alert"><a href="#" class="close" data-dismiss="alert"></a>
@@ -137,28 +142,29 @@
 
 <?php include 'footerr.php';?>
 
+
 <script>
-var phoneNumberInput = $('#phone');
-var inputElement = $('#join');
-phoneNumberInput.on('keyup', function() {
-    var phoneNumber = phoneNumberInput.val();
-    if (phoneNumber.charAt(0) === '0') {
-        phoneNumber = phoneNumber.substring(1);
-    }
-    phoneNumberInput.val(phoneNumber);
+// var phoneNumberInput = $('#phone');
+// var inputElement = $('#join');
+// phoneNumberInput.on('keyup', function() {
+//     var phoneNumber = phoneNumberInput.val();
+//     if (phoneNumber.charAt(0) === '0') {
+//         phoneNumber = phoneNumber.substring(1);
+//     }
+//     phoneNumberInput.val(phoneNumber);
 
-});
+// });
 
 
-phoneNumberInput.on('keyup', function() {
-    var inputValue = phoneNumberInput.val();
-    if (inputValue.length > 9) {
-        alert('In valid phone Number - It should be not more than 9 characters');
-        inputElement.prop('readonly', true);
-        return;
-    } else {
-        inputElement.prop('readonly', false);
-    }
+// phoneNumberInput.on('keyup', function() {
+//     var inputValue = phoneNumberInput.val();
+//     if (inputValue.length > 9) {
+//         alert('In valid phone Number - It should be not more than 9 characters');
+//         inputElement.prop('readonly', true);
+//         return;
+//     } else {
+//         inputElement.prop('readonly', false);
+//     }
 
-});
+// });
 </script>

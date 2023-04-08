@@ -12,7 +12,12 @@ class Login extends CI_Controller {
     }
 
 	function signin(){   
-		$phone = $data["country_code"].$this->input->post('phone');
+		if (strlen($this->input->post('phone')) > 9) {
+			$this->session->set_flashdata('message','Invalid phone number - It should not be more than 9 characters');
+			redirect('Home/login');
+		} 
+
+		$phone = $this->input->post('country_code').$this->input->post('phone');
 		$password = md5($this->input->post('password'));			  
 		$user = $this->db->query("SELECT * FROM users WHERE phone ='$phone' AND password ='$password'");
 		$row = $user->row();

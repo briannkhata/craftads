@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="<?=base_url();?>front/plugins/owlcarousel/owl.carousel.min.css">
     <link rel="stylesheet" href="<?=base_url();?>front/plugins/owlcarousel/owl.theme.default.min.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" />
 
     <!-- Aos CSS -->
     <link rel="stylesheet" href="<?=base_url();?>front/plugins/aos/aos.css">
@@ -90,8 +91,13 @@
                             </li>
 
                             <li>
+                                <a href="<?=base_url();?>Home/testimony">Testimonials</a>
+                            </li>
+
+                            <li>
                                 <a href="<?=base_url();?>Home/join">Join the Network</a>
                             </li>
+
                         </ul>
                     </div>
                     <ul class="nav header-navbar-rht">

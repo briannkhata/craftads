@@ -93,9 +93,9 @@
                                 <div class="service-widget">
                                     <div class="service-img">
                                         <a href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>">
-
+                                            <?php $image = $this->M_image->get_imageRANDOM();?>
                                             <img class="img-fluid serv-img"
-                                                src="<?= (file_exists(base_url().'uploads/users/'.$u['photo'])) ? base_url().'uploads/users/'.$u['photo'] : base_url().'uploads/users/noImage.png' ?>">
+                                                src="<?= (file_exists(base_url().'uploads/gallery/'.$image)) ? base_url().'uploads/gallery/'.$image: base_url().'uploads/users/noImage.png' ?>">
                                         </a>
 
                                         <div class="item-info">

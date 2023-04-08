@@ -69,7 +69,7 @@
             </li> -->
 
             <li>
-                <a href="<?=base_url();?>user/views">
+                <a href="<?=base_url();?>User/activate_account">
                     <i class="fa fa-key"></i>
                     <span class="title">Activate Account</span>
                 </a>
@@ -77,22 +77,19 @@
             </li>
 
             <li>
-                <a href="<?=base_url();?>user/views">
+                <a href="<?=base_url();?>User/buy_stars">
                     <i class="fa fa-money"></i>
                     <span class="title">Buy Stars</span>
                 </a>
             </li>
 
             <li>
-                <a href="<?=base_url();?>user/views">
+                <a href="<?=base_url();?>User/confirm_account">
                     <i class="fa fa-check-circle"></i>
                     <span class="title">Confirm Account</span>
                 </a>
 
             </li>
-
-
-
 
             <li>
                 <a href="<?=base_url();?>image">

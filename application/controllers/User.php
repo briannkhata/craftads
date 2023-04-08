@@ -319,6 +319,7 @@ class user extends CI_Controller {
 		$this->load->view($this->session->userdata('role').'/profile',$data);			
     }
 
+
     function update_profile(){
         $data['name']    = $this->input->post('name');
         $data['email']= $this->input->post('email');
@@ -387,104 +388,149 @@ class user extends CI_Controller {
 		$this->load->view($this->session->userdata('role').'/add_images',$data);			
     }
 
-    function activate_user($param=''){
-		$this->check_session();
-		$data['page_title']  = 'Activate Member |'.$this->M_user->get_user($param);
-		$data['user_id']  = $param;
-		$this->load->view($this->session->userdata('role').'/activate_user',$data);			
-    }
+    // function activate_user($param=''){
+	// 	$this->check_session();
+	// 	$data['page_title']  = 'Activate Member |'.$this->M_user->get_user($param);
+	// 	$data['user_id']  = $param;
+	// 	$this->load->view($this->session->userdata('role').'/activate_user',$data);			
+    // }
 
+	function generateRandom(){
+		$length = 10; // Change this to set the length of the random string
+		$characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+		$string = CRAFTADS - '';
+		for ($i = 0; $i < $length; $i++) {
+			$string .= $characters[rand(0, strlen($characters) - 1)];
+		}
+		return $string;
+	}
+	
     function activate_account(){
 		$this->check_session();
 		$data['page_title']  = 'Activate Account |';
 		$data['user_id']  = $this->session->userdata('user_id');
-		$this->load->view($this->session->userdata('role').'/activate_user',$data);			
+		$this->load->view($this->session->userdata('role').'/activate_account',$data);			
     }
 
-    function activatee_account(){
+    function activate_account2(){
     	$duration = $this->db->get('settings')->row()->duration;
+		$fee = $this->db->get('settings')->row()->fee;
 		$data['deleted'] = 0;
-		$data['payment_code'] = $this->input->post('payment_code');
+		$data['payment_code'] = generateRandom();
 		$data['payment_mode'] = $this->input->post('payment_mode');
-		$data['amount'] = $this->input->post('amount');
-    	$data['date_joined'] = date('Y-m-d h:m:i');
-    	$data['expiry_date']  = date('Y-m-d', strtotime($data['date_joined']. ' + '.$duration.' months'));
+		$data['amount'] = $fee;
+		$data['date_joined'] = date('Y-m-d h:m:i');
+		$data['expiry_date'] = date('Y-m-d', strtotime($data['date_joined']. ' + '.$duration.' months'));
 		$this->db->where('user_id',$this->input->post('user_id'));
-        $this->db->update('users',$data);
-    	$this->session->set_flashdata('message','Account Activated successfully');
-		redirect('user/dashboard');
+		$this->db->update('users',$data);
+		$this->session->set_flashdata('message','Account Activated successfully');
+		redirect('User/dashboard');
 	}
 
-	function activate(){
-		$data['deleted'] = 0;
-		$data['payment_code'] = $this->input->post('payment_code');
-		$data['payment_mode'] = $this->input->post('payment_mode');
-		$data['amount'] = $this->db->get('settings')->row()->joining_fee;
+
+	
+    function buy_stars(){
+		$this->check_session();
+		$data['page_title']  = 'Buy Stars |';
+		$data['user_id']  = $this->session->userdata('user_id');
+		$this->load->view($this->session->userdata('role').'/buy_stars',$data);			
+    }
+
+    function buy_stars2(){
+		$stars = $this->db->get('settings')->row()->stars;
+		$data['rating'] = 5;
+		$data['rate_payment_code'] = generateRandom();
+		$data['rate_payment_mode'] = $this->input->post('payment_mode');
+		$data['rate_amount'] = $stars;
+		$data['date_rated'] = date('Y-m-d h:m:i');
 		$this->db->where('user_id',$this->input->post('user_id'));
-        $this->db->update('users',$data);
-    	$this->session->set_flashdata('message','Member activated successfully');
-		redirect('user/members');
+		$this->db->update('users',$data);
+		$this->session->set_flashdata('message','Stars bought successfully');
+		redirect('User/dashboard');
 	}
 
-	function feature($param=''){
-		$data['featured'] = 1;
-		$this->db->where('user_id',$param);
-        $this->db->update('users',$data);
-		redirect('user/members');
-	}
 
-	function unfeature($param=''){
-		$data['featured'] = 0;
-		$this->db->where('user_id',$param);
-        $this->db->update('users',$data);
-		redirect('user/members');
-	}
- 
-	function save_images(){
-		$data['user_id'] = $this->input->post('user_id');
-		$data['date_added'] = date('Y-m-d h:i:s');
-	    $folder = 'uploads/users/';
-	    foreach ($_FILES['image']['tmp_name'] as $key => $image) {
-	        $imageTmpName = $_FILES['image']['tmp_name'][$key];
-	        $data['image'] = $_FILES['image']['name'][$key];
-	        move_uploaded_file($imageTmpName,$folder.$data['image']);
-	        $this->db->insert('images',$data);
-	    }
-	    $this->session->set_flashdata('message','Member Images saved successfully');
-		redirect('user/view/'.$data['user_id']);	    
-	}
+	function confirm_account(){
+		$this->check_session();
+		$data['page_title']  = 'Confirm Account |';
+		$data['user_id']  = $this->session->userdata('user_id');
+		$this->load->view($this->session->userdata('role').'/confirm_account',$data);			
+    }
 
-	function delete_image(){
-		$image_id= $this->input->post('image_id');
-		unlink('uploads/users/'.$this->M_image->get_image($image_id));
-		$this->db->where('image_id',$image_id);
-        $this->db->delete('images');
-    	return;
+    function confirm_account2(){
+		$confirm_fee = $this->db->get('settings')->row()->confirm_fee;
+		$data['confirmed'] = 1;
+		$data['confirmed_payment_code'] = generateRandom();
+		$data['confirmed_payment_mode'] = $this->input->post('payment_mode');
+		$data['confirmed_amount'] = $confirm_fee;
+		$data['date_confirmed'] = date('Y-m-d h:m:i');
+		$this->db->where('user_id',$this->input->post('user_id'));
+		$this->db->update('users',$data);
+		$this->session->set_flashdata('message','Account confirmed successfully');
+		redirect('User/dashboard');
 	}
 
 
 
-	 function save_settings(){
-        $data['app']    = $this->input->post('app');
-        $data['phone']= $this->input->post('phone');
-        $data['email']   = $this->input->post('email');
-        $data['address']  = $this->input->post('address');
-        $data['currency']    = $this->input->post('currency');
-        $data['about']    = $this->input->post('about');
-		$data['twitter']       = $this->input->post('twitter');
-		$data['facebook']    = $this->input->post('facebook');
-        $data['instagram']      = $this->input->post('instagram');
+function feature($param=''){
+$data['featured'] = 1;
+$this->db->where('user_id',$param);
+$this->db->update('users',$data);
+redirect('user/members');
+}
 
-        if (!empty($_FILES['image']['name'])):
-			move_uploaded_file($_FILES['image']['tmp_name'],'uploads/about/'.$_FILES['image']['name']);
-	        $data['image']   = $_FILES['image']['name'];
-	       endif;
+function unfeature($param=''){
+$data['featured'] = 0;
+$this->db->where('user_id',$param);
+$this->db->update('users',$data);
+redirect('user/members');
+}
 
-		$id  = $this->input->post('id');
-		$this->db->where('id',$id);
-		$this->db->update('settings',$data);
-		$data['page_title']  = 'Settings |';
-		$this->load->view($this->session->userdata('role').'/settings',$data);			
-    }    
+function save_images(){
+$data['user_id'] = $this->input->post('user_id');
+$data['date_added'] = date('Y-m-d h:i:s');
+$folder = 'uploads/users/';
+foreach ($_FILES['image']['tmp_name'] as $key => $image) {
+$imageTmpName = $_FILES['image']['tmp_name'][$key];
+$data['image'] = $_FILES['image']['name'][$key];
+move_uploaded_file($imageTmpName,$folder.$data['image']);
+$this->db->insert('images',$data);
+}
+$this->session->set_flashdata('message','Member Images saved successfully');
+redirect('user/view/'.$data['user_id']);
+}
+
+function delete_image(){
+$image_id= $this->input->post('image_id');
+unlink('uploads/users/'.$this->M_image->get_image($image_id));
+$this->db->where('image_id',$image_id);
+$this->db->delete('images');
+return;
+}
+
+
+
+function save_settings(){
+$data['app'] = $this->input->post('app');
+$data['phone']= $this->input->post('phone');
+$data['email'] = $this->input->post('email');
+$data['address'] = $this->input->post('address');
+$data['currency'] = $this->input->post('currency');
+$data['about'] = $this->input->post('about');
+$data['twitter'] = $this->input->post('twitter');
+$data['facebook'] = $this->input->post('facebook');
+$data['instagram'] = $this->input->post('instagram');
+
+if (!empty($_FILES['image']['name'])):
+move_uploaded_file($_FILES['image']['tmp_name'],'uploads/about/'.$_FILES['image']['name']);
+$data['image'] = $_FILES['image']['name'];
+endif;
+
+$id = $this->input->post('id');
+$this->db->where('id',$id);
+$this->db->update('settings',$data);
+$data['page_title'] = 'Settings |';
+$this->load->view($this->session->userdata('role').'/settings',$data);
+}
 
 }

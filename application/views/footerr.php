@@ -70,6 +70,9 @@
 <script src="<?=base_url();?>front/plugins/owlcarousel/owl.carousel.min.js">
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+
+
 <!-- Aos -->
 <script src="<?=base_url();?>front/plugins/aos/aos.js"></script>
 
@@ -182,9 +185,37 @@ function togglePasswordVisibility() {
         passwordInput.type = "password";
     }
 }
+
+
+var phoneNumberInput = $('#phone');
+var inputElement = $('.sabu');
+
+
+phoneNumberInput.on('keyup', function() {
+    var phoneNumber = phoneNumberInput.val();
+    if (phoneNumber.charAt(0) === '0') {
+        phoneNumber = phoneNumber.substring(1);
+    }
+    phoneNumberInput.val(phoneNumber);
+});
+
+
+if (phoneNumberInput.val().length > 9) {
+    alert('Invalid phone number - It should not be more than 9 characters')
+    inputElement.prop('readonly', true);
+} else {
+    inputElement.prop('readonly', false);
+}
+
+
+// Initialize Select2 on the category dropdown
+$('#category_id').select2();
+
+// Add search functionality to the dropdown
+$('#category_id').on('select2:open', function(e) {
+    $('.select2-search__field').attr('placeholder', 'Search categories');
+});
 </script>
-
-
 </body>
 
 </html>
