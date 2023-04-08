@@ -99,6 +99,14 @@
 
             </li>
 
+            <li>
+                <a href="<?=base_url();?>Skill">
+                    <i class="fa fa-list"></i>
+                    <span class="title">Skill/Services</span>
+                </a>
+
+            </li>
+
 
 
             <!-- <li>

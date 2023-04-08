@@ -209,7 +209,7 @@ if (phoneNumberInput.val().length > 9) {
 
 
 // Initialize Select2 on the category dropdown
-$('#category_id').select2();
+//$('#category_id').select2();
 
 // Add search functionality to the dropdown
 $('#category_id').on('select2:open', function(e) {

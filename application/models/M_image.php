@@ -33,14 +33,19 @@ class M_image extends CI_Model {
 		}
 
 		function get_imageRANDOM($user_id){
-		    $this->db->order_by('image_id','random()');
 			$this->db->where('user_id',$user_id);
-  		    $this->db->limit('1');
+			$this->db->order_by('RAND()');
+			$this->db->limit('1');
 			$query = $this->db->get('images');
-			return $query->row()->image;
+			//return $query->row()->image;
+			if($query){
+				return $query->row()->image;
+			}else {
+				return '';
+			}
 		}
 
-		 function get_views(){
+		function get_views(){
 			$query = $this->db->get('views');
 			return $query->result_array();
 		}

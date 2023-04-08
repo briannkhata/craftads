@@ -90,9 +90,13 @@
                                 <a href="<?=base_url();?>Home/craftads">Craft Ads List</a>
                             </li>
 
-                            <li>
+                            <!-- <li>
                                 <a href="<?=base_url();?>Home/testimony">Testimonials</a>
                             </li>
+
+                            <li>
+                                <a href="<?=base_url();?>Home/testimony" style="color:red;">Special Section</a>
+                            </li> -->
 
                             <li>
                                 <a href="<?=base_url();?>Home/join">Join the Network</a>

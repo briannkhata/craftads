@@ -9,8 +9,8 @@ class M_user extends CI_Model {
 	    function get_members(){
 		    $this->db->where('deleted',0);
    		    $this->db->where('role','member');
-			$this->db->order_by('user_id','random()');
-		    $this->db->order_by('user_id');
+			$this->db->order_by('RAND()');
+			$this->db->order_by('user_id');
 			$query = $this->db->get('users');
 			return $query->result_array();
 		}

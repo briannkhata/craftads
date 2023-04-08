@@ -204,6 +204,7 @@ class home extends CI_Controller {
         $data['category_id'] = $this->input->post('category_id');
         $data['exact_location'] = $this->input->post('exact_location');
         $data["country"] = $this->input->post('country');
+        $data["profession"] = $this->input->post('profession');
         $data["city"] = $this->input->post('city');
         $data["country_calling_code"] = $this->input->post('country_calling_code');
         $data["country_code"] = $this->input->post('country_code');

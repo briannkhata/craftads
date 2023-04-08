@@ -57,7 +57,7 @@ select {
 
 
 <div class="content">
-    <div class="container" style="height:750px;">
+    <div class="container" style="height:850px;">
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="section-header text-center">
@@ -104,11 +104,20 @@ select {
                                         type="hidden" name="region_code" id="region_code"></div>
                             </div>
                             <div class="col-lg-12">
+                                <div class="form-group"><label>Your Profession <span
+                                            class="text-danger">*</span></label>
+                                    <div class="input-group">
+                                        <input type=" tel" class="form-control" name="profession" id="profession"
+                                            required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
                                 <div class="form-group">
                                     <label>Category <span class="text-danger">*</span></label>
 
                                     <select class="form-control form-select" name="category_id" id="category_id">
-                                        <option selected disabled>Choose Category</option>
+                                        <option selected disabled>Category</option>
                                         <?php foreach($this->M_category->get_categories() as $cat) { ?>
                                         <option value="<?=$cat['category_id'];?>"><?=$cat['category'];?></option>
                                         <?php } ?>

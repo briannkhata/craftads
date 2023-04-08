@@ -41,20 +41,20 @@
                         </div>
                     </div>
                     <div class="service-details">
-                        <!-- <ul class="nav nav-pills service-tabs" id="pills-tab" role="tablist">
+                        <ul class="nav nav-pills service-tabs" id="pills-tab" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home"
-                                    role="tab" aria-controls="pills-home" aria-selected="true">Overview</a>
+                                    role="tab" aria-controls="pills-home" aria-selected="true">What do you Offer</a>
                             </li>
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
                                     role="tab" aria-controls="pills-profile" aria-selected="false">Services Offered</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="pills-book-tab" data-toggle="pill" href="#pills-book" role="tab"
                                     aria-controls="pills-book" aria-selected="false">Reviews</a>
-                            </li>
-                        </ul> -->
+                            </li> -->
+                        </ul>
                         <div class="tab-content">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                 aria-labelledby="pills-home-tab">
