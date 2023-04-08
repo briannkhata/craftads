@@ -19,6 +19,13 @@ class M_skill extends CI_Model {
 			return $query->result_array();
 		}
 
+        function get_skill_by_user($user_id){
+		    $this->db->where('user_id',$user_id);
+            $this->db->where('deleted',0);
+			$query = $this->db->get('skills');
+			return $query->result_array();
+		}
+
 		function get_skill($skill_id){
    		    $this->db->where('skill_id',$skill_id);
 			$query = $this->db->get('skill')->result_array();

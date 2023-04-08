@@ -100,14 +100,13 @@
 
                                         <div class="item-info">
                                             <div class="service-user">
-
                                                 <span class="service-price">Start Price :
                                                     <?=number_format($u['start_price'],2);?></span>
                                             </div>
                                             <div class="cate-list">
                                                 <a class="bg-yellow"
                                                     href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>">
-                                                    <?=$this->M_category->get_category($u['category_id']);?></a>
+                                                    <?=$u['profession'];?></a>
                                             </div>
                                         </div>
                                     </div>

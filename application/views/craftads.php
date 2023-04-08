@@ -107,7 +107,7 @@
                                             <div class="cate-list">
                                                 <a class="bg-yellow"
                                                     href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>">
-                                                    <?=$this->M_category->get_category($u['category_id']);?></a>
+                                                    <?=$u['profession'];?></a>
                                             </div>
                                         </div>
                                     </div>

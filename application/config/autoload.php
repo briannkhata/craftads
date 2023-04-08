@@ -141,5 +141,5 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array(
 				'M_image','M_category','M_user','M_member','M_country','M_payment_mode',
-				'M_news','M_testimony','M_location','M_district','M_referee'
+				'M_news','M_testimony','M_location','M_district','M_referee','M_skill'
 			);

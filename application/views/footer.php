@@ -24,16 +24,11 @@
 </script>
 <script src="<?=base_url();?>assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
 <script src="<?=base_url();?>assets/global/plugins/jquery.cokie.min.js" type="text/javascript"></script>
-<script src="<?=base_url();?>assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
-<script src="<?=base_url();?>assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript">
-</script>
+
 <!-- END CORE PLUGINS -->
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 
-<script src="<?=base_url();?>assets/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript">
-</script>
-<script src="<?=base_url();?>assets/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript">
-</script>
+
 
 <script src="<?=base_url();?>assets/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL PLUGINS -->
@@ -54,13 +49,6 @@
 <script type="text/javascript"
     src="<?=base_url();?>assets/global/plugins/datatables/plugins/bootstrap/dataTables.bootstrap.js"></script>
 
-<script type="text/javascript" src="<?=base_url();?>assets/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js">
-</script>
-<script type="text/javascript" src="<?=base_url();?>assets/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js">
-</script>
-<script src="<?=base_url();?>assets/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
-<script src="<?=base_url();?>assets/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript">
-</script>
 <script src="<?=base_url();?>assets/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript">
 </script>
 <script src="<?=base_url();?>assets/admin/pages/scripts/components-editors.js"></script>
