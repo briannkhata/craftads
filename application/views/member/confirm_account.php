@@ -8,18 +8,18 @@
     </div>
     <div class="portlet-body form">
         <!-- BEGIN FORM-->
-        <form action="<?=base_url();?>User/buy_stars2" method="post" class="horizontal-form"
+        <form action="<?=base_url();?>User/confirm_account2" method="post" class="horizontal-form"
             enctype="multipart/form-data">
             <div class="form-body">
-                <?php $stars = $this->db->get('settings')->row()->stars;?>
-                <?php $duration = $this->db->get('settings')->row()->duration;?>
+                <?php $confirm_fee = $this->db->get('settings')->row()->confirm_fee;?>
 
                 <div class="row">
 
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">Amount</label>
-                            <input type="text" value="<?=number_format($stars,2);?>" class="form-control" readonly>
+                            <input type="text" value="<?=number_format($confirm_fee,2);?>" class="form-control"
+                                readonly>
                         </div>
                     </div>
 
@@ -36,9 +36,10 @@
                         </div>
                     </div>
 
+
                 </div>
                 <div class=" form-actions left">
-                    <button type="submit" class="btn default red-stripe"> Buy Stars</button>
+                    <button type="submit" class="btn default red-stripe"> Confirm Account</button>
                 </div>
         </form>
         <!-- END FORM-->

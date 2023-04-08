@@ -32,8 +32,9 @@ class M_image extends CI_Model {
 			return $query->row()->image;
 		}
 
-		function get_imageRANDOM(){
+		function get_imageRANDOM($user_id){
 		    $this->db->order_by('image_id','random()');
+			$this->db->where('user_id',$user_id);
   		    $this->db->limit('1');
 			$query = $this->db->get('images');
 			return $query->row()->image;
