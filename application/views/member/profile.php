@@ -143,6 +143,18 @@
 					                    </div>
 					                </div>
 
+					                <div class="row">
+					                    <div class="col-md-12">
+					                        <div class="form-group">
+					                            <label class="control-label">Purpose</label>
+					                            <textarea class="form-control" name="purpose" rows="10"
+					                                placeholder="e.g Looking for any Job">
+																<?=strip_tags($key['purpose']);?>
+															</textarea>
+					                        </div>
+					                    </div>
+					                </div>
+
 
 					                <div class="row">
 					                    <div class="col-md-12">

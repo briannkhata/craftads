@@ -231,7 +231,7 @@ class home extends CI_Controller {
     function refresh_members(){
     $keyword = $this->input->post('keyword');
     echo $category_id = $this->input->post('category_id');
-    return;
+   // return;
     $exact_location = $this->input->post('exact_location');
     $country = $this->input->post('country');
     $city = $this->input->post('city');

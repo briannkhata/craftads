@@ -332,8 +332,9 @@ class user extends CI_Controller {
         $data["country_code"] = $this->input->post('country_code');
         $data["region"] = $this->input->post('region');
         $data["region_code"] = $this->input->post('region_code');
-		$data['address'] = nl2br(htmlentities($this->input->post('address'), ENT_QUOTES, 'UTF-8'));;
-		//$data['details']      = nl2br(htmlentities($this->input->post('details'), ENT_QUOTES, 'UTF-8'));
+		$data['address'] = $this->input->post('address');
+		$data['details']      = $this->input->post('details');
+		$data['purpose']      = $this->input->post('purpose');
 		$data['twitter']       = $this->input->post('twitter');
 		$data['facebook']    = $this->input->post('facebook');
         $data['instagram']      = $this->input->post('instagram');

@@ -47,7 +47,6 @@
 
 <!-- jQuery -->
 <script src="<?=base_url();?>front/js/jquery-3.6.0.min.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
 
 <!-- Bootstrap Core JS -->
@@ -175,6 +174,9 @@ $.getJSON("https://ipapi.co/json/", function(data) {
     $("#region_code").val(region_code);
     $(".karense").text(karense);
     $(".country_code").val(country_calling_code);
+    $(".c").text(country);
+    $(".cc").text(city);
+
 });
 
 function togglePasswordVisibility() {

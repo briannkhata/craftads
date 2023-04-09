@@ -9,6 +9,8 @@
             <div class="col">
                 <div class="breadcrumb-title">
                     <h2>Find a Professional</h2>
+                    <span class="c"></span> ,
+                    <span class="cc"></span>
                 </div>
             </div>
             <div class="col-auto float-end ms-auto breadcrumb-menu">

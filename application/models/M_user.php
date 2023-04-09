@@ -126,7 +126,17 @@ class M_user extends CI_Model {
 		    $this->db->where('category_id',$category_id);
 		    $this->db->where('deleted',0);
    		    $this->db->where('role','member');
-   		    $this->db->order_by('user_id',rand());
+   		    $this->db->order_by('RAND()');
+		    $query = $this->db->get('users');
+			return $query->result_array();
+		}
+
+		function get_similar_members($category_id,$user_id){
+		    $this->db->where('category_id',$category_id);
+			$this->db->where('user_id !=',$user_id);
+		    $this->db->where('deleted',0);
+   		    $this->db->where('role','member');
+   		    $this->db->order_by('RAND()');
 		    $query = $this->db->get('users');
 			return $query->result_array();
 		}
