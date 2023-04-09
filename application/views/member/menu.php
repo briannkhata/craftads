@@ -102,12 +102,18 @@
             <li>
                 <a href="<?=base_url();?>Skill">
                     <i class="fa fa-list"></i>
-                    <span class="title">Skill/Services</span>
+                    <span class="title">My Services</span>
                 </a>
 
             </li>
 
+            <li>
+                <a href="<?=base_url();?>User/mylocation">
+                    <i class="fa fa-map-marker" aria-hidden="true"></i>
+                    <span class="title">My Location</span>
+                </a>
 
+            </li>
 
             <!-- <li>
                 <a href="<?=base_url();?>testimony">
@@ -118,8 +124,8 @@
             </li> -->
 
             <li>
-                <a href="<?=base_url();?>user/profile">
-                    <i class="fa fa-cogs"></i>
+                <a href="<?=base_url();?>User/profile">
+                    <i class="fa fa-user"></i>
                     <span class="title">Profile</span>
                 </a>
 

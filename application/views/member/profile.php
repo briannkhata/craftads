@@ -4,7 +4,6 @@
 					        <div class="caption">
 					            <?=$page_title;?> |
 					        </div>
-
 					    </div>
 					    <div class="portlet-body form">
 					        <!-- BEGIN FORM-->
@@ -14,7 +13,6 @@
 					            <br>
 
 					            <div class="form-body">
-
 
 					                <div class="row">
 					                    <div class="col-md-12">

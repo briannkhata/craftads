@@ -31,6 +31,9 @@
                         <tr>
                             <td><?=$row['skill'];?></td>
                             <td>
+                                <a href="<?=base_url();?>Skill/add/<?=$row['skill_id'];?>"
+                                    class="btn btn-sm default green-stripe"><i class="fa fa-edit"></i></a>
+
                                 <a href="<?=base_url();?>Skill/delete/<?=$row['skill_id'];?>"
                                     class="btn btn-sm default red-stripe">Delete</a>
                             </td>

@@ -63,7 +63,7 @@ class M_user extends CI_Model {
 		function get_members_by_category($category_id){
 		    //$this->db->where('deleted',0);
    		    $this->db->where('category_id',$category_id);
-			$this->db->order_by('user_id',random());
+			$this->db->order_by('RAND()');
    		    $this->db->where('role','member');
 		    $this->db->order_by('user_id');
 			$query = $this->db->get('users');
@@ -172,6 +172,31 @@ class M_user extends CI_Model {
 				return 0;
 			}
 		}
+
+		function get_trial($user_id){
+			$this->db->where('user_id',$user_id);
+			$query = $this->db->get('users')->result_array();
+			if(count($query) > 0){
+				foreach ($query as $row) {
+					return $row['trial'];
+				}
+			}else {
+				return '';
+			}
+		}
+
+		function get_trial_end_date($user_id){
+			$this->db->where('user_id',$user_id);
+			$query = $this->db->get('users')->result_array();
+			if(count($query) > 0){
+				foreach ($query as $row) {
+					return $row['trial_end_date'];
+				}
+			}else {
+				return '';
+			}
+		}
+
 
 		function get_user($user_id){
    		    $this->db->where('user_id',$user_id);

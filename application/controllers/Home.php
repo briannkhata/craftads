@@ -196,6 +196,9 @@ class home extends CI_Controller {
 			$this->session->set_flashdata('message2','Invalid phone number - It should not be more than 9 characters');
 			redirect('Home/join');
 		} 
+
+        $trial_duration = $this->db->get('settings')->row()->trial_duration;
+        //$trial = $this->M_user->get_trial($user_id);
         
         $data['name'] = $this->input->post('name');
         $data['password'] = md5($this->input->post('password'));
@@ -210,6 +213,7 @@ class home extends CI_Controller {
         $data["country_code"] = $this->input->post('country_code');
         $data["region"] = $this->input->post('region');
         $data["region_code"] = $this->input->post('region_code');
+        $data['trial_end_date'] = date('Y-m-d', strtotime($data['date_joined'].' + '. $trial_duration . ' days'));
         $phone = $data["country_calling_code"].$this->input->post('phone');
         $check = $this->M_user->check_phone($phone);
 

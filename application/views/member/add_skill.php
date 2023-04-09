@@ -16,17 +16,22 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label class="control-label">Skill</label>
-                            <input type="text" class="form-control" name="skill[]">
+                            <input type="text" class="form-control" name="skill[]"
+                                value="<?php if (!empty($skill)){echo $skill;}?>">
                         </div>
                     </div>
                     <div id="newRow">
                     </diV>
                 </div>
                 <div class="form-actions left">
-
+                    <?php if (isset($update_id)){?>
+                    <input type="hidden" name="update_id" id="update_id" value="<?=$update_id;?>">
+                    <?php }?>
+                    <?php if (!isset($update_id)){?>
                     <button type="button" class="btn default green-stripe" onclick="addSkillField()">
                         <i class="fa fa-plus-circle"></i> Add Row
                     </button>
+                    <?php }?>
                     <button type="submit" class="btn default blue-stripe"> Save</button>
                 </div>
         </form>

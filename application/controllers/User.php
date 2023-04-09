@@ -321,18 +321,19 @@ class user extends CI_Controller {
 
 
     function update_profile(){
+		$user_id = $this->session->userdata('user_id');
         $data['name']    = $this->input->post('name');
         $data['email']= $this->input->post('email');
-        $data['phone']    = $this->input->post('phone');
         $data['exact_location'] = $this->input->post('exact_location');
         $data["country"] = $this->input->post('country');
         $data["city"] = $this->input->post('city');
         $data["country_calling_code"] = $this->input->post('country_calling_code');
+        $data['phone']    = $data["country_calling_code"].$this->input->post('phone');
         $data["country_code"] = $this->input->post('country_code');
         $data["region"] = $this->input->post('region');
         $data["region_code"] = $this->input->post('region_code');
 		$data['address'] = nl2br(htmlentities($this->input->post('address'), ENT_QUOTES, 'UTF-8'));;
-		$data['details']      = nl2br(htmlentities($this->input->post('details'), ENT_QUOTES, 'UTF-8'));
+		//$data['details']      = nl2br(htmlentities($this->input->post('details'), ENT_QUOTES, 'UTF-8'));
 		$data['twitter']       = $this->input->post('twitter');
 		$data['facebook']    = $this->input->post('facebook');
         $data['instagram']      = $this->input->post('instagram');
@@ -340,11 +341,48 @@ class user extends CI_Controller {
         $data['tagline']      = $this->input->post('tagline');
         $data['start_price']      = $this->input->post('start_price');
 		$data['category_id']      = $this->input->post('category_id');
-		$this->db->where('user_id',$this->session->userdata('user_id'));
+
+		$trial = $this->M_user->get_trial($user_id);
+		if(trial == 1){
+			$data['trial'] = 1;
+		}
+
+		$this->db->where('user_id',$user_id);
 		$this->db->update('users',$data);
-		$this->session->set_flashdata('message','Use details updated successfully');
+		$this->session->set_flashdata('message','Details updated successfully');
 		redirect('User/profile');
 	}
+
+	function mylocation(){
+		$this->check_session();
+		$data['page_title']  = 'My Location';
+		$data['user_id']  = $this->session->userdata('user_id');
+		$this->load->view($this->session->userdata('role').'/mylocation',$data);			
+    }
+
+	function update_location(){
+		$user_id = $this->session->userdata('user_id');
+		
+        $data['exact_location'] = $this->input->post('exact_location');
+        $data["country"] = $this->input->post('country');
+        $data["city"] = $this->input->post('city');
+        $data["country_calling_code"] = $this->input->post('country_calling_code');
+        $data["country_code"] = $this->input->post('country_code');
+        $data["region"] = $this->input->post('region');
+        $data["region_code"] = $this->input->post('region_code');
+		$data["address"] = $this->input->post('address');
+
+		$trial = $this->M_user->get_trial($user_id);
+		if(trial == 1){
+			$data['trial'] = 1;
+		}
+
+		$this->db->where('user_id',$user_id);
+		$this->db->update('users',$data);
+		$this->session->set_flashdata('message','Location updated successfully');
+		redirect('User/mylocation');
+	}
+
 
     function profile_picture(){
 		$this->check_session();
