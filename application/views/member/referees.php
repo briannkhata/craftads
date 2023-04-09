@@ -24,7 +24,13 @@
                     </div>
                 </div>
                 <table class="table">
-
+                    <thead>
+                        <tr>
+                            <th>Referee</th>
+                            <th>Job</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
                     <tbody>
                         <?php foreach ($this->M_referee->get_user_referees($this->session->userdata('user_id')) as $row):?>
                         <tr>

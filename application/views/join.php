@@ -66,6 +66,7 @@ select {
                 <form action="<?=base_url();?>Home/register" method="post">
                     <div class="service-fields mb-3">
                         <h3 class="heading-2">Enter your Details</h3>
+                        <!-- <span class="c"></span> , <span class="cc"></span> -->
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group"><label>Name <span class="text-danger">*</span></label><input

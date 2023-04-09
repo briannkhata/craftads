@@ -107,16 +107,12 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
 
-
-                            <li class="divider">
-                            </li>
-                            <li>
+                            <!-- <li>
                                 <a href="<?=base_url();?>user/profile_picture">
                                     <i class="fa fa-image"></i> Change Picture </a>
-                            </li>
+                            </li> -->
 
-                            <li class="divider">
-                            </li>
+
                             <li>
                                 <a href="<?=base_url();?>user/change_password">
                                     <i class="fa fa-user"></i> Change Password </a>

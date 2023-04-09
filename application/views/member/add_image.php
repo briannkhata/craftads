@@ -1,32 +1,5 @@
 					<?php $this->load->view('header');?>
-					<style>
-input[type="file"] {
-    border: 1px solid #ccc;
-    padding: 5px;
-    background-color: white;
-    color: black;
-    font-size: 16px;
-    border-radius: 4px;
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
-}
 
-.file-drop-box {
-    border: 2px dashed #ccc;
-    padding: 20px;
-    display: inline-block;
-    text-align: center;
-}
-
-.file-input {
-    display: none;
-}
-
-label[for="image-upload"] {
-    font-size: 16px;
-    color: #777;
-    cursor: pointer;
-}
-					</style>
 					<div class="portlet box grey-cascade">
 					    <div class="portlet-title">
 					        <div class="caption"><?=$page_title;?></div>
@@ -37,28 +10,47 @@ label[for="image-upload"] {
 					            <div class="form-body">
 					                <div class="row">
 					                    <div class="col-md-12">
-
-					                        <div class="file-drop-box">
-					                            <input type="file" name="image" id="image-upload"
+					                        <div class="form-group">
+					                            <label class="control-label">Select Image</label>
+					                            <input type="file" name="image" id="image"
 					                                value="<?php if (!empty($image)){echo $image;}?>" accept="image/*"
 					                                class="file-input" required>
-					                            <label for="image-upload">Drag and drop your files here or click to select</label>
+					                            <br>
+					                            <img src="<?=base_url();?>uploads/gallery/<?php if (isset($image)){echo $image;}?>"
+					                                id="preview-image" width="400" height="300" class="img-responsive">
+					                            <br>
 					                        </div>
-					                        <br><br>
+					                    </div>
 
-					                    </div><input type="hidden" name="user_id" value="<?=$this->session->userdata('user_id');?>">
+					                    <input type="hidden" name="user_id" value="<?=$this->session->userdata('user_id');?>">
 					                    <div class="col-md-12">
-					                        <div class="form-group"><label class="control-label">Title</label><input type="text"
-					                                name="title" class="form-control" value="<?php if (!empty($title)){echo $title;}?>"
-					                                required></div>
+					                        <div class="form-group">
+					                            <label class="control-label">Title</label>
+					                            <input type="text" name="title" class="form-control"
+					                                value="<?php if (!empty($title)){echo $title;}?>" required>
+					                        </div>
 					                    </div>
 					                </div>
 					            </div>
-					            <div class="form-actions left"><?php if (isset($update_id)) {
+					            <div class="form-actions left">
+					                <?php if (isset($update_id)) {
     ?><input type="hidden" name="update_id" id="update_id" value="<?=$update_id;?>"><?php
 }
 
 ?><button type="submit" class="btn default blue-stripe">Save</button></div>
 					        </form>
-					    </div><?php $this->load->view('footer');
-?>
+					    </div><?php $this->load->view('footer');?>
+					    <script>
+					    const inputElement = document.querySelector('#image');
+					    const previewImage = document.querySelector('#preview-image');
+
+					    inputElement.addEventListener('change', (event) => {
+					        const file = event.target.files[0];
+					        const reader = new FileReader();
+
+					        reader.readAsDataURL(file);
+					        reader.onload = () => {
+					            previewImage.src = reader.result;
+					        }
+					    });
+					    </script>

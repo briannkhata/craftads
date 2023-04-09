@@ -7,24 +7,25 @@
                 <div class="caption">
                     <?=$page_title;?>
                 </div>
-
             </div>
+            <?php $myImages = $this->M_image->get_my_images($this->session->userdata('user_id'));?>
             <div class="portlet-body">
                 <div class="table-toolbar">
                     <div class="row">
-                        <div class="col-md-12">
-                            <center>
-                                <a href="<?=base_url();?>image/read" class="btn default green-stripe">
-                                    Add Image
-                                </a>
+                        <?php if($myImages >= 4){?>
+                        <?php }else{?>
 
-                            </center>
+                        <div class="col-md-12">
+                            <a href="<?=base_url();?>image/read" class="btn default green-stripe">
+                                Add Image
+                            </a>
                         </div>
+                        <?php }?>
 
                     </div>
                 </div>
                 <hr>
-                <table class="table table-striped">
+                <table class="table">
                     <thead>
                         <tr>
                             <th>Image</th>

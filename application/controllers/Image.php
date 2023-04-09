@@ -28,6 +28,7 @@ class image extends CI_Controller {
 		$query = $this->M_image->get_image_by_id($update_id);
 		foreach ($query as $row) {
 			$data['title'] = $row['title'];
+			$data['image'] = $row['image'];
 			$data['user_id'] = $row['user_id'];
 		}
 		return $data;

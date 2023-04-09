@@ -26,24 +26,20 @@ class M_image extends CI_Model {
 			return $query->result_array();
 		}
 
+		function get_my_images($user_id){
+		    $this->db->where('user_id',$user_id);
+			$query = $this->db->get('images');
+			return $query->num_rows();
+		}
+
+
 		function get_image($image_id){
 		    $this->db->where('image_id',$image_id);
 			$query = $this->db->get('images');
 			return $query->row()->image;
 		}
 
-		function get_imageRANDOMv($user_id){
-			$this->db->where('user_id',$user_id);
-			$this->db->order_by('RAND()');
-			$this->db->limit('1');
-			$query = $this->db->get('images');
-			//return $query->row()->image;
-			if($query){
-				return $query->row()->image;
-			}else {
-				return '';
-			}
-		}
+
 
 		function get_imageRANDOM($user_id){
 			$this->db->where('user_id',$user_id);
