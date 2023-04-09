@@ -94,9 +94,18 @@
                                 <div class="service-widget">
                                     <div class="service-img">
                                         <a href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>">
-                                            <?php $image = $this->M_image->get_imageRANDOM($u['user_id']);?>
+                                            <?php 
+                                            $image = $this->M_image->get_imageRANDOM($u['user_id']);
+                                            if($image == ""){?>
                                             <img class="img-fluid serv-img"
-                                                src="<?= (file_exists(base_url().'uploads/gallery/'.$image)) ? base_url().'uploads/gallery/'.$image: base_url().'uploads/users/noImage.png' ?>">
+                                                src="<?= base_url().'uploads/users/noImage.png';?>">
+                                            <?php }else{?>
+
+                                            <img class="img-fluid serv-img"
+                                                src="<?= base_url().'uploads/gallery/'.$image;?>">
+
+                                            <?php } ?>
+
                                         </a>
 
                                         <div class="item-info">
@@ -144,20 +153,11 @@
 
 
                                                 <span class="col ser-location">
-                                                    <span><?=$u['exact_location'];?></span> <i
-                                                        class="fas fa-map-marker-alt ms-1"></i>
+                                                    <span><?=$u['city'];?>, <?=$u['exact_location'];?></span>
+                                                    <i class="fas fa-map-marker-alt ms-1"></i>
                                                 </span>
                                             </div>
 
-                                            <div class="row" style="margin-top:6%;">
-                                                <span class="col-auto ser-contact">
-                                                    <i class="fas fa-envelope"></i>
-                                                    <span>
-                                                        <a href="mailto:<?=$u['email'];?>" title="click to send Email">
-                                                            &nbsp <?=$u['email'];?></a>
-                                                    </span>
-                                                </span>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

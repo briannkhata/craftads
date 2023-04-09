@@ -44,14 +44,15 @@
                 </a>
 
             </li>
-            <!-- 
+
             <li>
                 <a href="<?=base_url();?>referee">
                     <i class="fa fa-users"></i>
-                    <span class="title">Referees</span>
+                    <span class="title">Previous Jobs / Referees</span>
                 </a>
 
             </li>
+            <!-- 
             <li>
                 <a href="<?=base_url();?>user/reviews">
                     <i class="fa fa-file"></i>
@@ -102,7 +103,7 @@
             <li>
                 <a href="<?=base_url();?>Skill">
                     <i class="fa fa-list"></i>
-                    <span class="title">My Services</span>
+                    <span class="title">My Services / Skills</span>
                 </a>
 
             </li>

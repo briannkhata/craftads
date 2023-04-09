@@ -13,7 +13,7 @@ class referee extends CI_Controller {
 
 	function index(){
 		$this->check_session();
-		$data['page_title']  = 'Referees';
+		$data['page_title']  = 'Previous Jobs / Referees';
 		$this->load->view($this->session->userdata('role').'/referees',$data);			
     }
 
@@ -21,6 +21,8 @@ class referee extends CI_Controller {
     function get_data_from_post(){
         $data['referee']    = $this->input->post('referee');
         $data['user_id']    = $this->input->post('user_id');
+		$data['job']    = $this->input->post('job');
+
     	return $data;
     }
 
@@ -29,27 +31,51 @@ class referee extends CI_Controller {
 		foreach ($query as $row) {
 		    $data['referee']  = $row['referee'];
 		    $data['user_id']  = $row['user_id'];
+			$data['job']  = $row['job'];
+
 		}
 		return $data;
 	}
 
-	function save(){
-		$data = $this->get_data_from_post();
-		$update_id = $this->input->post('update_id', TRUE);
-		if (isset($update_id)){
-			$this->db->where('referee_id',$update_id);
-			$this->db->update('referees',$data);
-		 }else{
-			$this->db->insert('referees',$data);
+	function save() {
+		$user_id = $this->input->post('user_id');
+		$referees = $this->input->post('referee');
+		$jobs = $this->input->post('job');
+		$existingIds = $this->input->post('update_id');
+	  
+		$data = array();
+		$updateIds = array();
+	  
+		// Prepare data for batch insert/update
+		foreach ($referees as $i => $referee) {
+		  if (!empty($referee) && !empty($jobs[$i])) {
+			$row = array(
+			  'referee' => $referee,
+			  'job' => $jobs[$i],
+			  'user_id' => $user_id
+			);
+	  
+			if (isset($existingIds[$i])) {
+			  // Existing record, mark for update
+			  $updateIds[] = $existingIds[$i];
+			  $row['referee_id'] = $existingIds[$i];
+			}
+	  
+			$data[] = $row;
+		  }
 		}
-
-		$this->session->set_flashdata('message','Referee saved successfully');
-			if($update_id !=''):
-    			redirect('referee');
-			else:
-				redirect('referee/read');
-			endif;
-	}
+	  
+		// Batch insert new records
+		$this->db->insert_batch('referees', $data);
+	  
+		// Batch update existing records
+		if (!empty($updateIds)) {
+		  $this->db->update_batch('referees', $data, 'referee_id');
+		}
+	  
+		$this->session->set_flashdata('message', 'Referees saved successfully');
+		redirect('referee');
+	  }
 
 
 	function read(){

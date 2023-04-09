@@ -200,7 +200,7 @@ phoneNumberInput.on('keyup', function() {
 });
 
 
-if (phoneNumberInput.val().length > 9) {
+if (phoneNumberInput.length > 9) {
     alert('Invalid phone number - It should not be more than 9 characters')
     inputElement.prop('readonly', true);
 } else {
