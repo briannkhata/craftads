@@ -40,6 +40,38 @@ class M_location extends CI_Model {
 			
 		}
 
+		function get_current_country(){
+			require_once APPPATH.'/../vendor/autoload.php';
+			$client = new \GuzzleHttp\Client([
+				'verify' => false
+			 ]); 
+			$body = $response->getBody()->getContents();
+			$data = json_decode($body,true);
+			return $data['country'];
+		}
+
+		function get_current_region_code(){
+			require_once APPPATH.'/../vendor/autoload.php';
+			$client = new \GuzzleHttp\Client([
+				'verify' => false
+			 ]); 
+			$response = $client->request('GET', 'https://ipapi.co/json/');
+			$body = $response->getBody()->getContents();
+			$data = json_decode($body,true);
+			return $data['region_code'];
+		}
+
+		function get_current_city(){
+			require_once APPPATH.'/../vendor/autoload.php';
+			$client = new \GuzzleHttp\Client([
+				'verify' => false
+			 ]); 
+			$response = $client->request('GET', 'https://ipapi.co/json/');
+			$body = $response->getBody()->getContents();
+			$data = json_decode($body,true);
+			return $data['city'];
+		}
+
+
 	
 }
-

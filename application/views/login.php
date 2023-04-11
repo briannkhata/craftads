@@ -61,6 +61,7 @@
                                     <div class="input-group">
                                         <input type="text" class="country_code" name="country_code" readonly>
                                         <input type=" tel" class="form-control" name="phone" id="phone" required>
+                                        <?=$this->M_location->get_current_region_code();?>
                                     </div>
                                 </div>
                             </div>

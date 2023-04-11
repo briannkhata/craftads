@@ -1,14 +1,11 @@
+<?php $this->load->view('header');?>
+<!-- END PAGE HEADER-->
+<!-- BEGIN DASHBOARD STATS -->
 <?php $category_id = $this->M_user->get_category_id($this->session->userdata('user_id'));?>
 <?php $trial = $this->M_user->get_trial($this->session->userdata('user_id'));?>
 <?php $trial_end_date = $this->M_user->get_trial_end_date($this->session->userdata('user_id'));?>
 <?php $confirmed = $this->M_user->get_confirmed($this->session->userdata('user_id'));?>
 <?php $rating = $this->M_user->get_rating($this->session->userdata('user_id'));?>
-
-
-
-<?php $this->load->view('header');?>
-<!-- END PAGE HEADER-->
-<!-- BEGIN DASHBOARD STATS -->
 <?php $deleted = $this->M_user->get_deleted($this->session->userdata('user_id'));?>
 <div class="alerto alert-info fade in" style="padding: 1%;">
     <h3>Welcome, <?=$this->session->userdata('name');?>!</h3>

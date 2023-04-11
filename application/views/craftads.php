@@ -80,7 +80,8 @@
                 <div class="col-lg-9">
                     <div class="row align-items-center mb-4">
                         <div class="col-md-6 col">
-                            <h4><span><?=count($this->M_user->get_members());?></span> Service(s)</h4>
+                            <h4><span><?=count($this->M_user->get_members($country,$region_code,$city));?></span>
+                                Service(s)</h4>
                         </div>
                         <div class="col-md-6 col-auto">
                             <div class="view-icons">
@@ -91,7 +92,7 @@
                     </div>
                     <div>
                         <div class="row" id="listo">
-                            <?php foreach($this->M_user->get_members() as $u){?>
+                            <?php foreach($this->M_user->get_members($country,$region_code,$city) as $u){?>
                             <div class="col-lg-4 col-md-6">
                                 <div class="service-widget">
                                     <div class="service-img">

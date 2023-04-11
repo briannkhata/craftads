@@ -47,7 +47,6 @@
     <!-- /Loader -->
 
     <div class="main-wrapper">
-
         <!-- Header -->
         <header class="header header-two">
             <nav class="navbar navbar-expand-lg header-nav">
@@ -60,10 +59,10 @@
                                 <span></span>
                             </span>
                         </a>
-                        <a href="index.html" class="navbar-brand logo">
+                        <a href="<?=base_url();?>" class="navbar-brand logo">
                             <img src="<?=base_url();?>uploads/logo.png" class="img-fluid" alt="Logo">
                         </a>
-                        <a href="index.html" class="navbar-brand logo-small">
+                        <a href="<?=base_url();?>" class="navbar-brand logo-small">
                             <img src="<?=base_url();?>uploads/logo.png" class="img-fluid" alt="Logo">
                         </a>
                     </div>

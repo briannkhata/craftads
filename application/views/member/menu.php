@@ -1,4 +1,7 @@
-<?php $deleted = $this->M_user->get_deleted($this->session->userdata('user_id'));?>
+<?php $trial = $this->M_user->get_trial($this->session->userdata('user_id'));?>
+<?php $trial_end_date = $this->M_user->get_trial_end_date($this->session->userdata('user_id'));?>
+<?php $confirmed = $this->M_user->get_confirmed($this->session->userdata('user_id'));?>
+<?php $rating = $this->M_user->get_rating($this->session->userdata('user_id'));?>
 
 <div class="page-sidebar-wrapper">
     <div class="page-sidebar navbar-collapse collapse">
@@ -28,10 +31,10 @@
                         <i class="icon-close"></i>
                     </a>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
+                        <!-- <input type="text" class="form-control" placeholder="Search..."> -->
+                        <!-- <span class="input-group-btn">
                             <a href="javascript:;" class="btn submit"><i class="icon-magnifier"></i></a>
-                        </span>
+                        </span> -->
                     </div>
                 </form>
                 <!-- END RESPONSIVE QUICK SEARCH FORM -->
@@ -45,13 +48,7 @@
 
             </li>
 
-            <li>
-                <a href="<?=base_url();?>referee">
-                    <i class="fa fa-users"></i>
-                    <span class="title">Previous Jobs / Referees</span>
-                </a>
 
-            </li>
             <!-- 
             <li>
                 <a href="<?=base_url();?>user/reviews">
@@ -69,28 +66,34 @@
 
             </li> -->
 
-            <li>
+            <?php if($trial == 1){?>
+            <li style="background: red;">
                 <a href="<?=base_url();?>User/activate_account">
                     <i class="fa fa-key"></i>
                     <span class="title">Activate Account</span>
                 </a>
-
             </li>
+            <?php } else{}?>
 
-            <li>
-                <a href="<?=base_url();?>User/buy_stars">
-                    <i class="fa fa-money"></i>
-                    <span class="title">Buy Stars</span>
-                </a>
-            </li>
 
-            <li>
+            <?php if($confirmed == 0){?>
+            <li style="background: red;">
                 <a href="<?=base_url();?>User/confirm_account">
                     <i class="fa fa-check-circle"></i>
                     <span class="title">Confirm Account</span>
                 </a>
 
             </li>
+            <?php } else{}?>
+
+            <?php if($rating == 0){?>
+            <li style="background: red;">
+                <a href="<?=base_url();?>User/buy_stars">
+                    <i class="fa fa-money"></i>
+                    <span class="title">Get 5 Stars</span>
+                </a>
+            </li>
+            <?php } else{}?>
 
             <li>
                 <a href="<?=base_url();?>image">
@@ -104,6 +107,12 @@
                 <a href="<?=base_url();?>Skill">
                     <i class="fa fa-list"></i>
                     <span class="title">My Services / Skills</span>
+                </a>
+            </li>
+            <li>
+                <a href="<?=base_url();?>referee">
+                    <i class="fa fa-users"></i>
+                    <span class="title">Previous Jobs / Referees</span>
                 </a>
 
             </li>

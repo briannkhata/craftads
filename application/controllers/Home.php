@@ -4,6 +4,7 @@ class home extends CI_Controller {
 
 	function __construct(){
 		parent::__construct();
+
 	}
 
 	function index(){
@@ -20,6 +21,14 @@ class home extends CI_Controller {
         $data['page_title'] = 'Agents';
         $this->load->view('agents',$data);
     }
+
+    function locateme(){
+        $response = file_get_contents('https://ipinfo.io/json/');
+        $data = json_decode($response, true);
+        $country = $data['country'];
+        return $country;
+       
+    }
     
      
     function app_downloads(){
@@ -28,8 +37,27 @@ class home extends CI_Controller {
         return;
     }
 
+    function getLocation(){
+        require_once APPPATH.'/../vendor/autoload.php';
+        $client = new \GuzzleHttp\Client([
+            'verify' => false
+         ]); 
+         
+        $response = $client->request('GET', 'https://ipapi.co/json/');
+        $body = $response->getBody()->getContents();
+        $data = json_decode($body,true);
+        return $data;
+    }
+
+    function getRegion(){
+       
+    }
+
     function craftads(){
         $data['page_title'] = 'Craft Ads Listing';
+        $data['country'] = $this->input->post("country");
+        $data['region_code'] = $this->input->post("region_code");
+        $data['city'] = $this->input->post("city");
         $this->load->view('craftads',$data);
     }
 

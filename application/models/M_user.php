@@ -6,9 +6,12 @@ class M_user extends CI_Model {
 	        parent::__construct();
 	    }
 
-	    function get_members(){
+	    function get_members($country,$region_code,$city){
 		    $this->db->where('deleted',0);
    		    $this->db->where('role','member');
+		    $this->db->where('country',$country);
+		    $this->db->where('region_code',$region_code);
+		    $this->db->where('city',$city);
 			$this->db->order_by('RAND()');
 			$this->db->order_by('user_id');
 			$query = $this->db->get('users');
