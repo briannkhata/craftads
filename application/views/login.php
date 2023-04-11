@@ -59,9 +59,10 @@
                             <div class="col-lg-12">
                                 <div class="form-group"><label>Phone <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input type="text" class="country_code" name="country_code" readonly>
+                                        <input type="text" class="country_code" name="country_code"
+                                            value="<?=$this->M_location->get_current_country_calling_code();?>"
+                                            readonly>
                                         <input type=" tel" class="form-control" name="phone" id="phone" required>
-                                        <?=$this->M_location->get_current_region_code();?>
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +75,7 @@
                                             <div class="input-group-text"><input type="checkbox"
                                                     onclick="togglePasswordVisibility()"
                                                     id="show-password-checkbox"><label for="show-password-checkbox"
-                                                    class="show-password-label">Show password</label></div>
+                                                    class="show-password-label">Show</label></div>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +84,7 @@
                     </div>
 
                     <?php if ($this->session->flashdata('message')) { ?>
-                    <div class="alert alert-danger" role="alert">
+                    <div class=" alert alert-danger" role="alert">
                         <a href="#" class="close" data-dismiss="alert"></a>
                         <center> <?=$this->session->flashdata('message'); ?> </center>
                     </div>
@@ -132,24 +133,24 @@
 <script src="<?=base_url();?>front/js/script.js"></script>
 
 <script>
-$.getJSON("https://ipapi.co/json/", function(data) {
-    var country = data.country_name;
-    var city = data.city;
-    var country_code = data.country_code;
-    var country_calling_code = data.country_calling_code;
-    var region = data.region;
-    var region_code = data.region_code;
-    var karense = data.currency;
+// $.getJSON("https://ipapi.co/json/", function(data) {
+//     var country = data.country_name;
+//     var city = data.city;
+//     var country_code = data.country_code;
+//     var country_calling_code = data.country_calling_code;
+//     var region = data.region;
+//     var region_code = data.region_code;
+//     var karense = data.currency;
 
-    $("#country").val(country);
-    $("#city").val(city);
-    $("#country_code").val(country_code);
-    $("#country_calling_code").val(country_calling_code);
-    $("#region").val(region);
-    $("#region_code").val(region_code);
-    $(".karense").text(karense);
-    $(".country_code").val(country_calling_code);
-});
+//     $("#country").val(country);
+//     $("#city").val(city);
+//     $("#country_code").val(country_code);
+//     $("#country_calling_code").val(country_calling_code);
+//     $("#region").val(region);
+//     $("#region_code").val(region_code);
+//     $(".karense").text(karense);
+//     $(".country_code").val(country_calling_code);
+// });
 
 function togglePasswordVisibility() {
     var passwordInput = document.getElementById("password");
@@ -180,15 +181,6 @@ if (phoneNumberInput.val().length > 9) {
 } else {
     inputElement.prop('readonly', false);
 }
-
-
-// Initialize Select2 on the category dropdown
-$('#category_id').select2();
-
-// Add search functionality to the dropdown
-$('#category_id').on('select2:open', function(e) {
-    $('.select2-search__field').attr('placeholder', 'Search categories');
-});
 </script>
 </body>
 

@@ -66,7 +66,6 @@ select {
                 <form action="<?=base_url();?>Home/register" method="post">
                     <div class="service-fields mb-3">
                         <h3 class="heading-2">Enter your Details</h3>
-                        <!-- <span class="c"></span> , <span class="cc"></span> -->
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group"><label>Name <span class="text-danger">*</span></label><input
@@ -75,7 +74,9 @@ select {
                             <div class="col-lg-12">
                                 <div class="form-group"><label>Phone <span class="text-danger">*</span></label>
                                     <div class="input-group">
-                                        <input type="text" class="country_code" readonly>
+                                        <input type="text" class="country_code"
+                                            value="<?=$this->M_location->get_current_country_calling_code();?>"
+                                            readonly>
                                         <input type=" tel" class="form-control" name="phone" id="phone" required
                                             pattern="[1-9][0-9]*">
                                     </div>
@@ -89,7 +90,7 @@ select {
                                             <div class="input-group-text"><input type="checkbox"
                                                     onclick="togglePasswordVisibility()"
                                                     id="show-password-checkbox"><label for="show-password-checkbox"
-                                                    class="show-password-label">Show password</label></div>
+                                                    class="show-password-label">Show</label></div>
                                         </div>
                                     </div>
                                 </div>
@@ -98,11 +99,9 @@ select {
                                 <div class="form-group"><label>Exact Location<span
                                             class="text-danger">*</span></label><input placeholder="e.g Chirimba"
                                         class="form-control" type="text" name="exact_location" id="exact_location"
-                                        required><input type="hidden" name="country" id="country"><input type="hidden"
-                                        name="city" id="city"><input type="hidden" name="country_calling_code"
-                                        id="country_calling_code"><input type="hidden" name="country_code"
-                                        id="country_code"><input type="hidden" name="region" id="region"><input
-                                        type="hidden" name="region_code" id="region_code"></div>
+                                        required>
+
+                                </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group"><label>Your Profession <span

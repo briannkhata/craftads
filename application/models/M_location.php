@@ -48,7 +48,7 @@ class M_location extends CI_Model {
 			$response = $client->request('GET', 'https://ipapi.co/json/');
 			$body = $response->getBody()->getContents();
 			$data = json_decode($body,true);
-			return $data['country'];
+			return $data['country_name'];
 		}
 
 		function get_current_region_code(){
@@ -74,5 +74,49 @@ class M_location extends CI_Model {
 		}
 
 
+		function get_current_country_calling_code(){
+			require_once APPPATH.'/../vendor/autoload.php';
+			$client = new \GuzzleHttp\Client([
+				'verify' => false
+			 ]); 
+			$response = $client->request('GET', 'https://ipapi.co/json/');
+			$body = $response->getBody()->getContents();
+			$data = json_decode($body,true);
+			return $data['country_calling_code'];
+		}
+
+		function get_current_country_code(){
+			require_once APPPATH.'/../vendor/autoload.php';
+			$client = new \GuzzleHttp\Client([
+				'verify' => false
+			 ]); 
+			$response = $client->request('GET', 'https://ipapi.co/json/');
+			$body = $response->getBody()->getContents();
+			$data = json_decode($body,true);
+			return $data['country_code'];
+		}
+
+		function get_current_region(){
+			require_once APPPATH.'/../vendor/autoload.php';
+			$client = new \GuzzleHttp\Client([
+				'verify' => false
+			 ]); 
+			$response = $client->request('GET', 'https://ipapi.co/json/');
+			$body = $response->getBody()->getContents();
+			$data = json_decode($body,true);
+			return $data['region'];
+		}
+
+		function get_current_currency(){
+			require_once APPPATH.'/../vendor/autoload.php';
+			$client = new \GuzzleHttp\Client([
+				'verify' => false
+			 ]); 
+			$response = $client->request('GET', 'https://ipapi.co/json/');
+			$body = $response->getBody()->getContents();
+			$data = json_decode($body,true);
+			return $data['currency'];
+		}
+		
 	
 }

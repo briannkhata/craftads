@@ -156,28 +156,28 @@ function save_enquiry() {
     }
 }
 
-$.getJSON("https://ipapi.co/json/", function(data) {
-    var country = data.country_name;
-    var city = data.city;
-    var country_code = data.country_code;
-    var country_calling_code = data.country_calling_code;
-    var region = data.region;
-    var region_code = data.region_code;
-    var karense = data.currency;
+// $.getJSON("https://ipapi.co/json/", function(data) {
+//     var country = data.country_name;
+//     var city = data.city;
+//     var country_code = data.country_code;
+//     var country_calling_code = data.country_calling_code;
+//     var region = data.region;
+//     var region_code = data.region_code;
+//     var karense = data.currency;
 
 
-    $("#country").val(country);
-    $("#city").val(city);
-    $("#country_code").val(country_code);
-    $("#country_calling_code").val(country_calling_code);
-    $("#region").val(region);
-    $("#region_code").val(region_code);
-    $(".karense").text(karense);
-    $(".country_code").val(country_calling_code);
-    $(".c").text(country);
-    $(".cc").text(city);
+//     $("#country").val(country);
+//     $("#city").val(city);
+//     $("#country_code").val(country_code);
+//     $("#country_calling_code").val(country_calling_code);
+//     $("#region").val(region);
+//     $("#region_code").val(region_code);
+//     $(".karense").text(karense);
+//     $(".country_code").val(country_calling_code);
+//     $(".c").text(country);
+//     $(".cc").text(city);
 
-});
+// });
 
 function togglePasswordVisibility() {
     var passwordInput = document.getElementById("password");

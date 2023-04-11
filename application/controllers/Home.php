@@ -219,13 +219,15 @@ class home extends CI_Controller {
         $data['date_joined'] = date('Y-m-d h:i:s');
         $data['category_id'] = $this->input->post('category_id');
         $data['exact_location'] = $this->input->post('exact_location');
-        $data["country"] = $this->input->post('country');
-        $data["profession"] = $this->input->post('profession');
-        $data["city"] = $this->input->post('city');
-        $data["country_calling_code"] = $this->input->post('country_calling_code');
-        $data["country_code"] = $this->input->post('country_code');
-        $data["region"] = $this->input->post('region');
-        $data["region_code"] = $this->input->post('region_code');
+        
+        $data['country'] = $this->M_location->get_current_country();
+        $data['region_code'] = $this->M_location->get_current_region_code();
+        $data['city'] = $this->M_location->get_current_city();
+        $data["country_calling_code"] = $this->M_location->get_current_country_calling_code();
+        $data["country_code"] = $this->M_location->get_current_country_code();
+        $data["region"] = $this->M_location->get_current_region();
+        $data["region_code"] = $this->M_location->get_current_region_code();
+        
         $data['trial_end_date'] = date('Y-m-d', strtotime($data['date_joined'].' + '. $trial_duration . ' days'));
         $phone = $data["country_calling_code"].$this->input->post('phone');
         $check = $this->M_user->check_phone($phone);
@@ -243,12 +245,12 @@ class home extends CI_Controller {
 
     function refresh_members(){
     $keyword = $this->input->post('keyword');
-    echo $category_id = $this->input->post('category_id');
-   // return;
+    $category_id = $this->input->post('category_id');
+
     $exact_location = $this->input->post('exact_location');
-    $country = $this->input->post('country');
-    $city = $this->input->post('city');
-    $region_code = $this->input->post('region_code');
+    $country = $this->M_location->get_current_country();
+    $region_code = $this->M_location->get_current_region_code();
+    $city = $this->M_location->get_current_city();
 
     $this->db->select('*');
     $this->db->from('users');

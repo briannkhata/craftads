@@ -44,28 +44,13 @@ class M_user extends CI_Model {
 			return $query->result_array();
 		}
 
-		function get_featured_members(){
-		    //$this->db->where('deleted',0);
-   		    $this->db->where('featured',1);
-   		    $this->db->where('role','member');
-		    $this->db->order_by('user_id');
-			$query = $this->db->get('users');
-			return $query->result_array();
-		}
 
-		function get_featured_members_eight(){
-		    //$this->db->where('deleted',0);
-   		    $this->db->where('featured',1);
-   		    $this->db->where('role','member');
-		    $this->db->order_by('user_id');
-		    $this->db->limit(8);
-			$query = $this->db->get('users');
-			return $query->result_array();
-		}
-
-		function get_members_by_category($category_id){
+		function get_members_by_category($category_id,$country,$region_code,$city){
 		    //$this->db->where('deleted',0);
    		    $this->db->where('category_id',$category_id);
+			$this->db->where('country',$country);
+   		    $this->db->where('region_code',$region_code);
+   		    $this->db->where('city',$city);
 			$this->db->order_by('RAND()');
    		    $this->db->where('role','member');
 		    $this->db->order_by('user_id');
@@ -73,13 +58,6 @@ class M_user extends CI_Model {
 			return $query->result_array();
 		}
 
-		 function get_members2(){
-		   // $this->db->where('deleted',0);
-   		    $this->db->where('role','member');
-		    $this->db->order_by('user_id');
-			$query = $this->db->get('users');
-			return $query->result_array();
-		}
 
 		function get_user_by_id($user_id){
 		    $this->db->where('user_id',$user_id);
@@ -134,8 +112,11 @@ class M_user extends CI_Model {
 			return $query->result_array();
 		}
 
-		function get_similar_members($category_id,$user_id){
+		function get_similar_members($category_id,$country, $region_code,$city, $user_id){
 		    $this->db->where('category_id',$category_id);
+			$this->db->where('country',$country);
+			$this->db->where('region_code',$region_code);
+			$this->db->where('city',$city);
 			$this->db->where('user_id !=',$user_id);
 		    $this->db->where('deleted',0);
    		    $this->db->where('role','member');

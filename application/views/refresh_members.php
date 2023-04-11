@@ -9,8 +9,8 @@
             <div class="col">
                 <div class="breadcrumb-title">
                     <h2>Find a Professional</h2>
-                    <span class="c"></span> ,
-                    <span class="cc"></span>
+                    <span class=""><?=$this->M_location->get_current_country();?></span> ,
+                    <span class=""><?=$this->M_location->get_current_city();?></span>
                 </div>
             </div>
             <div class="col-auto float-end ms-auto breadcrumb-menu">
@@ -41,10 +41,6 @@
                                     <h4 class="filter-title">Keyword</h4>
                                     <input type="text" class="form-control" name="keyword" id="keyword"
                                         placeholder="What are you looking for?">
-
-                                    <input type="hidden" name="country" id="country">
-                                    <input type="hidden" name="city" id="city">
-                                    <input type="hidden" name="region_code" id="region_code">
                                 </div>
                                 <!-- <div class="filter-list">
                                     <h4 class="filter-title">Sort By</h4>
@@ -91,7 +87,7 @@
                     <div>
                         <div class="row" id="listo">
                             <?php foreach($members as $u){?>
-                            <div class="col-lg-3 col-md-6">
+                            <div class="col-lg-4 col-md-6">
                                 <div class="service-widget">
                                     <div class="service-img">
                                         <a href="<?=base_url();?>Home/profile/<?=$u['user_id'];?>">
@@ -110,7 +106,9 @@
 
                                         <div class="item-info">
                                             <div class="service-user">
-                                                <span class="service-price">Start Price :
+                                                <span
+                                                    class="service-price"><?=$this->M_location->get_current_currency();?>
+                                                    :
                                                     <?=number_format($u['start_price'],2);?></span>
                                             </div>
                                             <div class="cate-list">

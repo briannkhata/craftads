@@ -9,8 +9,8 @@
             <div class="col">
                 <div class="breadcrumb-title">
                     <h2>Find a Professional</h2>
-                    <span class="c"></span> ,
-                    <span class="cc"></span>
+                    <span class=""><?=$this->M_location->get_current_country();?></span> ,
+                    <span class=""><?=$this->M_location->get_current_city();?></span>
                 </div>
             </div>
             <div class="col-auto float-end ms-auto breadcrumb-menu">
@@ -41,10 +41,6 @@
                                     <h4 class="filter-title">Keyword</h4>
                                     <input type="text" class="form-control" name="keyword" id="keyword"
                                         placeholder="What are you looking for?">
-
-                                    <input type="hidden" name="country" id="country">
-                                    <input type="hidden" name="city" id="city">
-                                    <input type="hidden" name="region_code" id="region_code">
                                 </div>
                                 <!-- <div class="filter-list">
                                     <h4 class="filter-title">Sort By</h4>
@@ -61,7 +57,8 @@
                                         name="category_id" id="category_id" required>
                                         <option selected disabled>All Categories</option>
                                         <?php foreach($this->M_category->get_categories() as $cat){?>
-                                        <option value=" <?=$cat['category_id'];?>"><?=$cat['category'];?></option>
+                                        <option value=" <?=$cat['category_id'];?>">
+                                            <?=$cat['category'];?></option>
                                         <?php }?>
                                     </select>
                                 </div>
@@ -113,7 +110,9 @@
 
                                         <div class="item-info">
                                             <div class="service-user">
-                                                <span class="service-price"><span class="karense"></span> :
+                                                <span class="service-price"><span
+                                                        class=""><?=$this->M_location->get_current_currency();?></span>
+                                                    :
                                                     <?=number_format($u['start_price'],2);?></span>
                                             </div>
                                             <div class="cate-list">
@@ -156,7 +155,8 @@
 
 
                                                 <span class="col ser-location">
-                                                    <span><?=$u['city'];?>, <?=$u['exact_location'];?></span>
+                                                    <span><?=$u['city'];?>,
+                                                        <?=$u['exact_location'];?></span>
                                                     <i class="fas fa-map-marker-alt ms-1"></i>
                                                 </span>
                                             </div>

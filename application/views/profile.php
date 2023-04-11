@@ -162,10 +162,17 @@
                 </div>
 
             </div>
-            <h4 class="card-title">Related Services</h4>
+            <h4 class="card-title">Similar Services</h4>
+            <hr>
+
+            <?php
+                $country = $this->M_location->get_current_country();
+                $region_code = $this->M_location->get_current_region_code();
+                $city = $this->M_location->get_current_city();
+            ?>
             <div class="service-carousel">
                 <div class="popular-slider owl-carousel owl-theme">
-                    <?php foreach($this->M_user->get_similar_members($category_id,$user_id) as $uc){?>
+                    <?php foreach($this->M_user->get_similar_members($category_id,$country ,$region_code,$city,$user_id) as $uc){?>
                     <div class="service-widget">
                         <div class="service-img">
                             <a href="<?=base_url();?>Home/profile/<?=$uc['user_id'];?>">
@@ -182,7 +189,8 @@
                             <div class="item-info">
                                 <div class="service-user">
 
-                                    <span class="service-price"><span class="karense"></span>
+                                    <span class="service-price">
+                                        <?=$this->M_location->get_current_currency();?>
                                         : <?=number_format($uc['start_price'],2);?></span>
                                 </div>
                                 <div class="cate-list">
@@ -234,7 +242,7 @@
         <div class="col-lg-4 theiaStickySidebar">
             <div class="sidebar-widget widget">
                 <div class="service-amount">
-                    <span><span class="karense"></span> :
+                    <span> <?=$this->M_location->get_current_currency();?> :
                         <?=number_format($su['start_price'],2);?></span>
                 </div>
                 <div class="service-book">
