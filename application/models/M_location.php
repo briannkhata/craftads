@@ -45,6 +45,7 @@ class M_location extends CI_Model {
 			$client = new \GuzzleHttp\Client([
 				'verify' => false
 			 ]); 
+			$response = $client->request('GET', 'https://ipapi.co/json/');
 			$body = $response->getBody()->getContents();
 			$data = json_decode($body,true);
 			return $data['country'];
